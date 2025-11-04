@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinergia Engenharia Brasil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Css/home.css">
+  
+  <link rel="icon" type="image/x-icon" href="imagens/logo.png">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Hero background */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                  url('imagens/imagem de fundo.webp') center/cover no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="pageHeader">
+    <div class="nav-container">
+      <div class="nav-logo">Sinergia Engenharia Brasil</div>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+
+          <!-- Dropdown de Produtos -->
+          <li class="dropdown">
+            <a href="#products">Produtos <i class="fa-solid fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="porta_paletes.html">Porta Palete</a></li>
+              <li><a href="drive_in.html">Drive-In / Drive-Through</a></li>
+              <li><a href="cantilever.html">Cantilever</a></li>
+              <li><a href="push_back.html">Push-back</a></li>
+              <li><a href="flow_rack.html">Flow rack</a></li>
+            </ul>
+          </li>
+
+          <li><a href="sobre.html" class="btn">Sobre Nós</a></li>
+          <li><a href="paletes.html">Paletes</a></li>
+          <li><a href="#contact">Contato</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Especialistas em Sistemas de Armazenagem</h1>
+      <p>Soluções personalizadas que otimizam espaço, segurança e logística para a sua empresa.</p>
+      <a href="#contact" class="btn">Receba um Orçamento</a>
+    </div>
+  </section>
+
+  <section id="products" class="section-products">
+    <h2>Produtos</h2>
+
+    <div class="carousel-container">
+      <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+
+      <div class="carousel-track">
+        <div class="product-card">
+          <img src="imagens/portaPaletes.jpg" alt="Porta Palete">
+          <div class="product-info">
+            <h3>Porta Palete</h3>
+            <p>As estruturas porta paletes são a solução ideal para gerenciar nossos pedidos e otimizar a capacidade de armazenamento</p>
+            <a href="porta_paletes.html" class="btn-link">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="imagens/drive-in.avif" alt="Drive-in">
+          <div class="product-info">
+            <h3>Drive-In / Drive-Through</h3>
+            <p>As drive-in aproveitaram o espaço, o que nos proporcionou um aumento significativo da capacidade de armazenamento</p>  
+            <a href="drive_in.html" class="btn-link">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="imagens/cantilever.avif" alt="Cantilever">
+          <div class="product-info">
+            <h3>Cantilever</h3>
+            <p>A estante cantilever nos permite armazenar nossos perfis que têm entre 4 e 7 metros de comprimento</p>
+            <a href="cantilever.html" class="btn-link">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="imagens/PushBack.png" alt="Push-back">
+          <div class="product-info">
+            <h3>Push-back</h3>
+            <p>Além de serem muito práticos, nos permitiu eliminar corredores e agilizar as tarefas de armazenamento</p>
+            <a href="push_back.html" class="btn-link">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="imagens/FlowRack.png" alt="Flow rack">
+          <div class="product-info">
+            <h3>Flow rack</h3>
+            <p>Com o rack de fluxo de paletes, reduzimos em 50% o tempo necessário para inserir e remover paletes dos racks</p>
+            <a href="flow_rack.html" class="btn-link">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <section id="about" class="section-about">
+  <div class="about-card">
+    <h2>Sobre Nós</h2>
+    <p>
+      A <strong>Sinergia Engenharia Brasil</strong> é parceira estratégica no fornecimento de soluções de engenharia de alta precisão para empresas de armazenagem e centros de distribuição.
+    </p>
+    <p>
+      Desde 2017, já regularizou mais de <strong>200 projetos</strong>, sempre com foco na <em>eficiência operacional</em>, <em>documentação técnica rigorosa</em> e <em>conformidade legal</em>.
+    </p>
+    <a href="sobre.html" class="btn">Saiba Mais</a>
+  </div>
+</section>
+
+
+  <section id="diferenciais" class="section-diferenciais">
+    <div class="diferenciais-header">
+      <h2>Nossos Diferenciais</h2>
+      <p>Projetos que unem tecnologia, precisão e segurança para transformar a eficiência do seu armazém.</p>
+    </div>
+
+    <div class="diferenciais-grid">
+      <div class="diferencial-card">
+        <div class="icon"><i class="fa-solid fa-industry"></i></div>
+        <h4>Verticalização Inteligente</h4>
+        <p>Estruturas integradas com porta-paletes, push-back e mezaninos metálicos, otimizando o uso da altura do armazém.</p>
+      </div>
+
+      <div class="diferencial-card">
+        <div class="icon"><i class="fa-solid fa-gears"></i></div>
+        <h4>Flexibilidade e Escalabilidade</h4>
+        <p>Projetos planejados para expansões futuras, garantindo modularidade e economia a longo prazo.</p>
+      </div>
+
+      <div class="diferencial-card">
+        <div class="icon"><i class="fa-solid fa-helmet-safety"></i></div>
+        <h4>Conformidade e Segurança</h4>
+        <p>Engenharia certificada, respeitando todas as normas técnicas e garantindo a integridade estrutural.</p>
+      </div>
+
+      <div class="diferencial-card">
+        <div class="icon"><i class="fa-solid fa-calculator"></i></div>
+        <h4>Cálculos Estruturais</h4>
+        <p>Precisão técnica para cargas dinâmicas e estáticas, otimizando o desempenho de cada estrutura.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contato</h2>
+    <div class="contact-info">
+      <p>Telefone: (11) 98240-2134 | Email: thigobrasil@gmail.com</p>
+    </div>
+    <form action="#" method="POST">
+      <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+        <input type="text" name="nome" placeholder="Nome" required style="flex:1 1 200px; padding:0.7rem; border:1px solid #ffffff; border-radius:4px;">
+        <input type="email" name="email" placeholder="Email" required style="flex:1 1 200px; padding:0.7rem; border:1px solid #ffffff; border-radius:4px;">
+        <input type="text" name="numero" placeholder="Telefone" required style="flex:1 1 200px; padding:0.7rem; border:1px solid #ffffff; border-radius:2px;">
+        <input type="text" name="endereço" placeholder="Endereço" required style="flex:1 1 200px; padding:0.7rem; border:1px solid #ffffff; border-radius:2px;">
+      </div>
+      <textarea name="mensagem" rows="4" placeholder="Mensagem" required style="width:100%; margin-top:1rem; padding:0.7rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+      <button type="submit" style="margin-top:1rem; padding:0.8rem 2rem; background: var(--primary-color); color: var(--text-light); border:none; border-radius: var(--radius); cursor:pointer;">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Metálicas Pro</h4>
+        <p>Soluções em armazenagem industrial e estruturas metálicas personalizadas.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#products">Produtos</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a></li>
+          <li><a href="tel:+55 (11) 98240-2134">(11) 98240-2134</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 Sinergia Engenharia Brasil. Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('pageHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    
+    const track = document.querySelector('.carousel-track');
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+
+    nextButton.addEventListener('click', () => {
+      track.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+
+    prevButton.addEventListener('click', () => {
+      track.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

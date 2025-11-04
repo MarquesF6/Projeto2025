@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palete PBR — Sinergia Engenharia Brasil</title>
+
+  <link rel="icon" type="image/x-icon" href="imagens/logo.png">
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="Css/pbr.css">
+</head>
+<style>
+  .hero-left {
+      flex:1;
+      background:linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.05)),
+        url('imagens/palete-de-madeira-pbr.jpeg') center/cover no-repeat;
+      border-radius:var(--radius);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:3rem;
+      box-shadow:var(--shadow);
+      min-height:360px;
+    }
+</style>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="nav-logo">Sinergia Engenharia Brasil</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="paletes.html">Paletes</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1>Palete PBR — Padrão Brasileiro</h1>
+      <p>Fabricado segundo a ABNT NBR 9192:2005 e certificado pela ABRAS, garantindo suporte entre 1.500 kg e 2.000 kg. Ideal para operações logísticas de alto desempenho.</p>
+      <div class="hero-cta">
+        <a href="#detalhes" class="btn">Saiba Mais</a>
+        <a href="#contact" class="btn btn-outline">Contato</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <h3>Resumo Técnico</h3>
+      <div class="specs-quick">
+        <div class="kpi">Padronizado 1.200 x 1.000 mm</div>
+        <div class="kpi">Alta resistência</div>
+        <div class="kpi">Seguro e certificado</div>
+      </div>
+      <p>Defeitos acima de 5 mm, rachaduras ou umidade comprometem a segurança. Uso fora do padrão pode aumentar risco de ruptura de porta-paletes.</p>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container" id="detalhes">
+    <section>
+      <div class="card">
+        <h2>O que é o Palete PBR?</h2>
+        <p class="subtle">O Palete PBR é o padrão brasileiro regulamentado pela ABNT NBR 9192:2005 e certificado pela ABRAS. Fabricado por empresas credenciadas e testado pelo IPT.</p>
+
+        <hr>
+
+        <h2>Principais características</h2>
+        <div class="two-col">
+          <div>
+            <ul class="check">
+              <li>Suporte de 1.500 a 2.000 kg de carga dinâmica</li>
+              <li>Medidas padronizadas: 1.200 x 1.000 mm</li>
+              <li>Marcações a calor para rastreabilidade</li>
+              <li>Ideal para operações logísticas intensas</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="check">
+              <li>Defeitos acima de 5 mm comprometem segurança</li>
+              <li>Controle de umidade e empenamento</li>
+              <li>Conformidade com ABNT NBR 17150 e EN 15635</li>
+              <li>Laudos técnicos garantem confiabilidade</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr>
+
+        <h2>Aplicações</h2>
+        <p class="subtle">Indústrias, centros de distribuição e armazéns que exigem movimentação segura, rápida e padronizada de materiais.</p>
+
+      </div>
+    </section>
+
+    <aside class="aside">
+      <div class="card">
+        <h3>Serviço Sinergia</h3>
+        <p class="subtle">Engenharia especializada em cálculo estrutural e regularização de paletes PBR. Emissão de ARTs e laudos técnicos.</p>
+        <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Palete PBR" class="cta-contact">Solicitar Orçamento</a>
+
+        <div style="margin-top:1rem; font-size:.95rem">
+          <strong>Contato</strong>
+          <p>Thiago Brasil de Araújo — Eng. Civil</p>
+          <p>WhatsApp: <a href="https://wa.me/5511982402134" target="_blank">(11) 98240-2134</a></p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contact">
+    <div class="card">
+      <h3>Precisa de ajuda com projeto Palete PBR?</h3>
+      <p class="subtle">Enviamos proposta técnica completa com cálculos estruturais, especificação de materiais e ART.</p>
+      <a href="mailto:thigobrasil@gmail.com?subject=Projeto Palete PBR" class="cta-contact">Entre em contato</a>
+      <a href="paletes.html" class="cta-contact">Voltar aos produtos</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <small>&copy; 2025 Sinergia Engenharia Brasil — Todos os direitos reservados.</small>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+
+</body>
+</html>
