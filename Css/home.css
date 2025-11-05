@@ -1,7 +1,7 @@
 :root {
   --primary-color: #005f87;  
   --accent-color: #005f87;    
-  --bg-light: #f0f0f0;
+  --bg-light: #f5f5f5;
   --bg-dark: #f0f0f0;
   --text-dark: #333333;
   --text-light: #ffffff;
@@ -449,11 +449,7 @@ footer {
   font-size: 0.95rem;
   line-height: 1.5;
 }
-/* Hero background */
-    .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                  url('.../imagens/imagem de fundo.webp') center/cover no-repeat;
-    }
+
 
     /* ======== DROPDOWN ======== */
     .dropdown {
@@ -554,3 +550,126 @@ footer {
 .about-card .btn:hover {
   background-color: #087e8b;
 }
+
+/* ===== MENU RESPONSIVO ===== */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  nav ul {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: var(--bg-light);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: height 0.4s ease;
+  }
+
+  nav ul.open {
+    height: calc(100vh - 70px);
+    padding-top: 2rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+}
+
+/* ===== HERO AJUSTES MOBILE ===== */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    background-attachment: scroll;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-content .btn {
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
+}
+
+/* ===== SEÇÕES ===== */
+@media (max-width: 768px) {
+  section {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .section-about {
+    flex-direction: column;
+    padding: 60px 1rem;
+  }
+
+  .about-card {
+    padding: 25px;
+  }
+
+  .carousel-container {
+    margin: 1rem auto;
+  }
+
+  .carousel-btn {
+    display: none; /* evita sobreposição no mobile */
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== AJUSTES FORMULÁRIO ===== */
+@media (max-width: 600px) {
+  .contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-section input,
+  .contact-section textarea,
+  .contact-section button {
+    width: 100%;
+    border-radius: 6px;
+  }
+}
+

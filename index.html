@@ -17,6 +17,7 @@
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
                   url('imagens/imagem de fundo.webp') center/cover no-repeat;
     }
+    
   </style>
 </head>
 
@@ -24,6 +25,10 @@
   <header id="pageHeader">
     <div class="nav-container">
       <div class="nav-logo">Sinergia Engenharia Brasil</div>
+      <div class="menu-toggle" id="menuToggle">
+  <i class="fa-solid fa-bars"></i>
+</div>
+
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -205,14 +210,14 @@
   </footer>
 
   <script>
-    
+    // Efeito header ao rolar
     window.addEventListener('scroll', () => {
       const header = document.getElementById('pageHeader');
       if (window.scrollY > 50) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     });
 
-    
+    // Scroll suave
     document.querySelectorAll('nav ul li a').forEach(link => {
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
@@ -224,7 +229,7 @@
       });
     });
 
-    
+    // Carrossel
     const track = document.querySelector('.carousel-track');
     const nextButton = document.querySelector('.next');
     const prevButton = document.querySelector('.prev');
@@ -236,6 +241,27 @@
     prevButton.addEventListener('click', () => {
       track.scrollBy({ left: -320, behavior: 'smooth' });
     });
+
+    // ====== MENU MOBILE ======
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.querySelector('nav ul');
+const dropdowns = document.querySelectorAll('.dropdown');
+
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+  const icon = menuToggle.querySelector('i');
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-xmark');
+});
+
+// Permitir abrir/fechar dropdowns no mobile
+dropdowns.forEach(drop => {
+  drop.addEventListener('click', e => {
+    e.stopPropagation();
+    drop.classList.toggle('active');
+  });
+});
+
   </script>
 </body>
 </html>
