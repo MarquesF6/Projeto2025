@@ -35,7 +35,9 @@
 
           <!-- Dropdown de Produtos -->
           <li class="dropdown">
-            <a href="#products">Produtos <i class="fa-solid fa-chevron-down"></i></a>
+            <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Produtos <i class="fa-solid fa-chevron-down"></i>
+            </a>
             <ul class="dropdown-menu">
               <li><a href="porta_paletes.html">Porta Palete</a></li>
               <li><a href="drive_in.html">Drive-In / Drive-Through</a></li>
@@ -242,27 +244,64 @@
       track.scrollBy({ left: -320, behavior: 'smooth' });
     });
 
-// ===== MENU MOBILE =====
+// MENU MOBILE e dropdowns robustos
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('nav ul');
 const dropdowns = document.querySelectorAll('.dropdown');
 
-menuToggle.addEventListener('click', () => {
+// Abre/fecha menu principal (hamburguer)
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
   navMenu.classList.toggle('open');
   const icon = menuToggle.querySelector('i');
   icon.classList.toggle('fa-bars');
   icon.classList.toggle('fa-xmark');
+
+  // fecha todos os dropdowns internos quando abrimos/fechamos menu
+  dropdowns.forEach(d => d.classList.remove('active'));
 });
 
-// Permitir abrir/fechar dropdowns no mobile sem conflito
+// Ao clicar fora do menu: fecha menu (melhora usabilidade)
+document.addEventListener('click', () => {
+  if (navMenu.classList.contains('open')) {
+    navMenu.classList.remove('open');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.remove('fa-xmark');
+    icon.classList.add('fa-bars');
+  }
+  dropdowns.forEach(d => d.classList.remove('active'));
+});
+
+// Evita o clique em elementos do nav fechar o menu ao interagir
+navMenu.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+
+// Toggle do dropdown
 dropdowns.forEach(drop => {
-  const link = drop.querySelector('a');
-  link.addEventListener('click', e => {
-    // Evita que o link "Produtos" redirecione
+  const toggle = drop.querySelector('.dropdown-toggle');
+
+  // evita falha se seletor diferente
+  if (!toggle) return;
+
+  toggle.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation();
+
+    // fecha outros dropdowns (comportamento opcional)
+    dropdowns.forEach(d => {
+      if (d !== drop) d.classList.remove('active');
+    });
+
+    // alterna o atual
     drop.classList.toggle('active');
+
+    // atualizar aria-expanded
+    const isOpen = drop.classList.contains('active');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 });
+
 
   </script>
 </body>
