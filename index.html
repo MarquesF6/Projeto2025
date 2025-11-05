@@ -242,7 +242,7 @@
       track.scrollBy({ left: -320, behavior: 'smooth' });
     });
 
-    // ====== MENU MOBILE ======
+// ===== MENU MOBILE =====
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.querySelector('nav ul');
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -254,10 +254,12 @@ menuToggle.addEventListener('click', () => {
   icon.classList.toggle('fa-xmark');
 });
 
-// Permitir abrir/fechar dropdowns no mobile
+// Permitir abrir/fechar dropdowns no mobile sem conflito
 dropdowns.forEach(drop => {
-  drop.addEventListener('click', e => {
-    e.stopPropagation();
+  const link = drop.querySelector('a');
+  link.addEventListener('click', e => {
+    // Evita que o link "Produtos" redirecione
+    e.preventDefault();
     drop.classList.toggle('active');
   });
 });
