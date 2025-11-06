@@ -726,3 +726,62 @@ nav ul {
     font-size: 0.9rem;
   }
 }
+/* ====== MENU MOBILE (LATERAL, DESLIZANTE) ====== */
+.menu-toggle {
+  display: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  z-index: 1200;
+}
+
+/* layout desktop mantém o nav normal */
+nav ul.nav-links { list-style:none; display:flex; gap:1.5rem; padding:0; margin:0; }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
+
+  /* menu lateral oculto à direita */
+  nav ul.nav-links {
+    position: fixed;
+    top: 0;
+    right: -110%;
+    width: 78%;
+    max-width: 360px;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 4.5rem 1.25rem 2rem; /* espaço para header + conteúdo */
+    box-shadow: -6px 0 24px rgba(0,0,0,0.12);
+    transition: right .36s cubic-bezier(.2,.9,.2,1);
+    z-index: 1199;
+    overflow-y: auto;
+  }
+
+  /* quando aberto */
+  nav ul.nav-links.open {
+    right: 0;
+  }
+
+  /* links grandes para toque */
+  nav ul.nav-links li a {
+    display: block;
+    padding: 12px 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-radius: 6px;
+  }
+
+  nav ul.nav-links li a:hover {
+    background: #f1f4f6;
+  }
+
+  /* evita que indicadores do header (sombras) fiquem por cima */
+  header { z-index: 1200; }
+}
