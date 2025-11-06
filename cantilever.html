@@ -178,14 +178,29 @@
       track.scrollBy({ left: -320, behavior: 'smooth' });
     });
 
-    // Menu mobile
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.querySelector('nav ul');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      menuToggle.querySelector('i').classList.toggle('fa-bars');
-      menuToggle.querySelector('i').classList.toggle('fa-xmark');
-    });
+    // MENU MOBILE ESTILO MODELO
+const btn = document.getElementById("menuToggle");
+const menu = document.querySelector("nav ul");
+
+btn.addEventListener("click", () => {
+  menu.classList.toggle("open");
+
+  // troca icone
+  const icon = btn.querySelector("i");
+  icon.classList.toggle("fa-bars");
+  icon.classList.toggle("fa-xmark");
+});
+
+// dropdown no mobile
+document.querySelectorAll(".dropdown > a").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    if (window.innerWidth <= 900) {
+      e.preventDefault();
+      el.parentElement.classList.toggle("active");
+    }
+  });
+});
+
   </script>
 </body>
 </html>
