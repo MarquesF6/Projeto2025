@@ -566,43 +566,30 @@ footer {
 
 @media (max-width: 900px) {
   nav ul {
-    position: fixed;
+    position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
-    height: 0;
-    overflow: hidden;
     background: var(--bg-light);
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: height 0.4s ease;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
   }
 
   nav ul.open {
-    height: calc(100vh - 70px);
-    padding-top: 2rem;
+    max-height: 300px; /* altura suficiente para os itens */
+    padding: 1rem 0;
   }
 
   .menu-toggle {
     display: block;
   }
-
-  .dropdown-menu {
-    position: static;
-    box-shadow: none;
-    border: none;
-  }
-
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
-
-  .dropdown.active .dropdown-menu {
-    display: block;
-  }
 }
+
 
 /* ===== HERO AJUSTES MOBILE ===== */
 @media (max-width: 768px) {
@@ -698,14 +685,7 @@ footer {
     color: var(--primary-color);
     font-weight: 500;
   }
-}
-/* --- Dropdown mobile/desktop robusto --- */
-.dropdown-toggle {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
+
 
 /* Desktop: hover mantém comportamento atual */
 @media (min-width: 901px) {
@@ -746,9 +726,5 @@ footer {
     background: transparent;
   }
 
-  /* indicador de dropdown aberto (rotaciona a setinha) */
-  .dropdown.active > .dropdown-toggle i {
-    transform: rotate(180deg);
-    transition: transform 200ms;
-  }
+}
 }
