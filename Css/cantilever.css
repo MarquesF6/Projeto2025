@@ -324,3 +324,56 @@ img {
     line-height: 1.5;
   }
 }
+/* ===============================
+   MENU MOBILE
+================================*/
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  gap: 1.8rem;
+}
+
+/* MOBILE */
+@media (max-width: 780px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Oculta o menu no mobile */
+  nav ul.nav-links {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #fff;
+    flex-direction: column;
+    padding: 2rem 0;
+    text-align: center;
+    gap: 2rem;
+    z-index: 999;
+    animation: menuFade .3s ease;
+  }
+
+  /* Quando ativo */
+  nav ul.nav-links.active {
+    display: flex;
+  }
+
+  @keyframes menuFade {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Aumenta área clicável */
+  nav ul.nav-links a {
+    font-size: 1.3rem;
+  }
+}
