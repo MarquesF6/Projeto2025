@@ -554,7 +554,7 @@ footer {
   background-color: #087e8b;
 }
 
-/* ===== MENU RESPONSIVO (altura dinâmica) ===== */
+/* ===== MENU RESPONSIVO (SEM EFEITO VIDRO) ===== */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -572,9 +572,9 @@ footer {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    background: #ffffff;
+    background-color: #f8f9fa; /* Cor sólida discreta */
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
@@ -582,11 +582,11 @@ footer {
     max-height: 0;
     opacity: 0;
     padding: 0;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
   }
 
   nav ul.open {
-    max-height: 1000px; /* grande o suficiente para o conteúdo */
+    max-height: 600px; /* altura suficiente para todos os itens */
     opacity: 1;
     padding: 1rem 0;
   }
@@ -603,11 +603,12 @@ footer {
     color: var(--primary-color);
     font-weight: 600;
     border-radius: 8px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   nav ul li a:hover {
-    background: var(--bg-dark);
+    background: #e9ecef;
+    color: #004d66;
   }
 
   .menu-toggle {
