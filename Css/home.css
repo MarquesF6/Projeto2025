@@ -754,4 +754,44 @@ footer {
   }
 
 }
+
+}
+
+/* ===== FOOTER RESPONSIVO ===== */
+@media (max-width: 768px) {
+
+  footer {
+    padding: 2.5rem 1rem;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;   /* espaço entre blocos */
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .footer-section h4 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
 }
