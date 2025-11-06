@@ -554,35 +554,57 @@ footer {
   background-color: #087e8b;
 }
 
-/* ===== MENU RESPONSIVO ===== */
+/* ===== MENU RESPONSIVO (melhorado) ===== */
 .menu-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: var(--primary-color);
   background: none;
   border: none;
+  z-index: 1100;
 }
 
 @media (max-width: 900px) {
   nav ul {
     position: absolute;
     top: 70px;
-    left: 0;
-    width: 100%;
-    background: var(--bg-light);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    gap: 0.8rem;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.4s ease;
+    transition: max-height 0.4s ease, padding 0.3s ease;
   }
 
   nav ul.open {
-    max-height: 300px; /* altura suficiente para os itens */
+    max-height: 400px;
     padding: 1rem 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    background: var(--bg-dark);
   }
 
   .menu-toggle {
