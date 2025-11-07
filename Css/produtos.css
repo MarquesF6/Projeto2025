@@ -21,13 +21,13 @@ body {
   color: var(--text);
   background: var(--bg);
   padding-top: 80px;
-  /* Padding para o header fixo no desktop (80px) */
+  
   -webkit-font-smoothing: antialiased;
 }
 
 /* ===========================
-       HEADER & NAV (DESKTOP)
-    =========================== */
+       HEADER & NAV (DESKTOP)
+    =========================== */
 
 header {
   position: fixed;
@@ -75,6 +75,7 @@ header.scrolled {
   z-index: 1100;
 }
 
+/* Padrão DESKTOP: nav e ul visíveis, em linha */
 nav ul {
   list-style: none;
   display: flex;
@@ -105,8 +106,8 @@ nav ul li a.active::after {
 }
 
 /* ===========================
-       HERO & CONTEÚDO (Geral)
-    =========================== */
+       HERO & CONTEÚDO (Geral)
+    =========================== */
 
 /* HERO */
 .hero {
@@ -198,8 +199,9 @@ nav ul li a.active::after {
 
 .btn:hover {
   background: #0077a8;
-  /* Ajuste do hover para combinar com o HERO */
+
 }
+
 
 /* FOOTER */
 footer {
@@ -212,8 +214,8 @@ footer {
 }
 
 /* ===========================
-       RESPONSIVO
-    =========================== */
+       RESPONSIVO
+    =========================== */
 
 @media (max-width:960px) {
   .produto-card {
@@ -229,75 +231,83 @@ footer {
 /* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
 
-    /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
-    body {
-        padding-top: 70px; /* Altura do header mobile */
-    }
+  /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
+  body {
+    padding-top: 70px;
+    /* Altura do header mobile */
+  }
 
-    /* Padroniza a altura do header no mobile */
-    header,
-    header.scrolled {
-        height: 70px;
-    }
+  /* Padroniza a altura do header no mobile */
+  header,
+  header.scrolled {
+    height: 70px;
+  }
 
-    /* 1. MOSTRA o botão hambúrguer */
-    .menu-toggle {
-        display: block !important; /* CORREÇÃO: Força o display: block */
-    }
+  /* 1. MOSTRA o botão hambúrguer no mobile */
+  .menu-toggle {
+    display: block;
+  }
 
-    /* 2. ESCONDE A NAVEGAÇÃO PRINCIPAL (OS LINKS HORIZONTAIS) */
-    nav {
-        display: none; /* Esconde o nav no mobile */
-    }
+  /* 2. ESCONDE O CONTAINER DE LINKS DO DESKTOP */
+  nav {
+    /* Garante que o nav não ocupe espaço na linha do header */
+    display: none;
+  }
 
-    /* 3. CONFIGURA O MENU POP-UP (que será mostrado pelo JavaScript) */
-    nav ul {
-        position: absolute;
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        
-        background-color: #f8f9fa;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  /* 3. CONFIGURA O MENU POP-UP: Deve ser separado do nav acima */
+  nav ul {
+    /* Pega o UL que está no HTML (escondido) e o posiciona na tela */
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
 
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
-        max-height: 0;
-        opacity: 0;
-        padding: 0;
-        overflow: hidden; 
-        transition: all 0.3s ease;
-        
-        display: none; /* Garante que a lista não ocupe espaço quando fechada */
-    }
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 
-    /* 4. Classe .open que o JavaScript adiciona para MOSTRAR o menu */
-    nav ul.open {
-        display: flex; /* MOSTRA a lista quando a classe 'open' está ativa */
-        max-height: 600px;
-        opacity: 1;
-        padding: 1rem 0;
-    }
+    /* Esconde e prepara para a transição */
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
 
-    /* 5. Estilo dos links dentro do menu mobile */
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
+    /* CORREÇÃO CHAVE: Aqui o display deve ser flex, mas é escondido pelo max-height */
+    display: flex;
+  }
 
-    nav ul li a {
-        display: block;
-        width: 100%;
-        padding: 12px 0;
-        color: var(--primary);
-        font-weight: 600;
-    }
+  /* 4. Classe .open que o JavaScript adiciona para MOSTRAR o menu */
+  nav ul.open {
+    max-height: 600px;
+    opacity: 1;
+    padding: 1rem 0;
+  }
 
-    nav ul li a::after {
-        display: none;
-    }
+  /* 5. Estilo dos links dentro do menu mobile */
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  nav ul li a:hover {
+    background: #e9ecef;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
 }
