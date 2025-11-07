@@ -270,89 +270,97 @@ footer {
 
 /* Ajustes Finais para Mobile (Menu e Header) */
 
+/* ===========================
+   RESPONSIVIDADE (MEDIA QUERIES)
+=========================== */
+/* ... (Seu código @media (max-width: 960px) vem antes) ... */
+
+/* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
 
-  /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
-  body {
-    padding-top: 70px;
-  }
+    /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
+    body {
+        padding-top: 70px; 
+    }
 
-  /* Padroniza a altura do header no mobile */
-  header,
-  header.scrolled {
-    height: 70px;
-  }
+    /* Padroniza a altura do header no mobile */
+    header,
+    header.scrolled {
+        height: 70px;
+    }
 
-  /* 1. MOSTRA o botão hambúrguer no mobile */
-  .menu-toggle {
-    display: block;
-  }
+    /* 1. MOSTRA o botão hambúrguer no mobile */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    /* CORREÇÃO CHAVE: ESCONDE A NAVEGAÇÃO HORIZONTAL E POSICIONA-A */
+    nav {
+        /* No mobile, a tag nav deve estar pronta para conter o menu flutuante */
+        display: block; /* Garante que o nav possa ser manipulado */
+        /* O nav no desktop tem display flex, no mobile ele deve ser block
+           para que o UL flutuante não interfira */
+    }
 
-  /* 2. ESCONDE O CONTÊINER DE NAVEGAÇÃO HORIZONTAL (nav) */
-  nav {
-    /* CORREÇÃO CHAVE: Esconder o contêiner nav impede que ele interfira no layout. */
-    display: none;
-    /* O UL (o menu em si) é exibido flutuando, fora do nav, quando a classe 'open' é acionada */
-  }
+    /* 2. Configura o MENU POP-UP UL */
+    nav ul {
+        /* Desativa o display flex do desktop e o torna um elemento flutuante */
+        display: flex; /* Mantido como flex para empilhar links */
+        flex-direction: column;
+        align-items: center;
 
-  /* 3. Configura o MENU POP-UP UL */
-  nav ul {
-    /* Deve ser display: flex para empilhar, mas inicialmente invisível */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        /* Posicionamento flutuante e absoluto */
+        position: absolute;
+        top: 70px; /* Alinhado logo abaixo do header */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px; 
+        
+        background-color: var(--card);
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Sombra um pouco mais forte */
 
-    /* Posicionamento flutuante */
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 300px;
+        gap: 0.8rem;
 
-    background-color: var(--card);
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra mais forte para destaque */
+        /* Animação e estado inicial (fechado) */
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        overflow: hidden; 
+        transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); /* Curva de animação mais suave */
+        
+        /* O UL não deve ser visível na linha do header, ele é um pop-up */
+    }
+    
+    /* 3. Classe .open que o JavaScript adiciona para MOSTRAR o menu */
+    nav ul.open {
+        max-height: 600px; /* Valor grande o suficiente para o menu */
+        opacity: 1;
+        padding: 1rem 0;
+        overflow: visible;
+    }
 
-    gap: 0.8rem;
+    /* 4. Estilo dos links dentro do menu mobile */
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
 
-    /* Animação e estado inicial (fechado) */
-    max-height: 0;
-    opacity: 0;
-    padding: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        color: var(--primary);
+        font-weight: 600;
+    }
 
-  /* 4. Classe .open que o JavaScript adiciona para MOSTRAR o menu */
-  nav ul.open {
-    max-height: 600px;
-    opacity: 1;
-    padding: 1rem 0;
-    overflow: visible;
-  }
+    nav ul li a:hover {
+        background: #e9ecef;
+    }
 
-  /* 5. Estilo dos links dentro do menu mobile */
-  nav ul li {
-    width: 100%;
-    text-align: center;
-  }
-
-  nav ul li a {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-    color: var(--primary);
-    font-weight: 600;
-  }
-
-  nav ul li a:hover {
-    background: #e9ecef;
-  }
-
-  nav ul li a::after {
-    display: none;
-  }
+    nav ul li a::after {
+        display: none;
+    }
 }
 
