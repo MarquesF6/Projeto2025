@@ -970,12 +970,12 @@ para o submenu (dropdown) no mobile (até 900px). */
 
 
 
-/* ===== FOOTER RESPONSIVO ===== */
+/* ===== FOOTER RESPONSIVO CORRIGIDO ===== */
 /* Media Query (até 768px) para tornar o rodapé responsivo. */
 @media (max-width: 768px) {
 
   /* No mobile, o rodapé é centralizado, e seus contêineres 
-    e seções são empilhados verticalmente. */
+    e seções são empilhados verticalmente. */
   footer {
     padding: 2.5rem 1rem;
     text-align: center;
@@ -985,30 +985,48 @@ para o submenu (dropdown) no mobile (até 900px). */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    /* espaço entre blocos */
+    gap: 2.5rem;
+    /* Aumentei um pouco o espaço entre os blocos */
   }
 
+  
   .footer-section {
-    width: 50%;
-    max-width: 200px;
+    width: 90%;
+    /* Ocupa a maior parte da largura do celular */
+    max-width: 320px;
+    /* Limite de largura para não ficar gigante em tablets */
+
+    /* Alinhamento do texto à esquerda para o conteúdo, 
+       mas centralizado para o container (apenas para o bloco) */
+    text-align: left;
   }
 
-  .footer-section h4 {
-    margin-bottom: 0.8rem;
-    font-size: 1.1rem;
+  /* Ajusta o alinhamento da primeira seção de texto */
+  .footer-section:first-child {
+    text-align: center;
+    /* Mantém o alinhamento centralizado para o bloco de texto inicial */
+  }
+
+  /* Centraliza a lista de links/contato dentro de suas seções */
+  .footer-section ul {
+    /* Centraliza a lista de links/contato, que agora tem 90% de largura */
+    padding-left: 0;
   }
 
   .footer-section ul li {
     margin-bottom: 0.5rem;
+    text-align: center;
+    /* Centraliza os itens da lista */
   }
 
-  .footer-section ul li a {
-    font-size: 0.95rem;
+  .footer-section h4 {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    /* Aumentei um pouco o tamanho para mobile */
   }
 
   .footer-bottom {
     margin-top: 2rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
