@@ -229,87 +229,75 @@ footer {
 /* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
 
-  /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
-  body {
-    padding-top: 70px;
-    /* Altura do header mobile */
-  }
+    /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
+    body {
+        padding-top: 70px; /* Altura do header mobile */
+    }
 
-  /* Padroniza a altura do header no mobile */
-  header,
-  header.scrolled {
-    height: 70px;
-  }
+    /* Padroniza a altura do header no mobile */
+    header,
+    header.scrolled {
+        height: 70px;
+    }
 
-  /* MOSTRA o botão hambúrguer */
-  .menu-toggle {
-    display: block;
-  }
+    /* 1. MOSTRA o botão hambúrguer */
+    .menu-toggle {
+        display: block !important; /* CORREÇÃO: Força o display: block */
+    }
 
-  /* ESCONDE A NAVEGAÇÃO PRINCIPAL (OS LINKS HORIZONTAIS) */
-  nav {
-    display: none;
-    /* Esconde o nav no mobile, liberando espaço */
-  }
+    /* 2. ESCONDE A NAVEGAÇÃO PRINCIPAL (OS LINKS HORIZONTAIS) */
+    nav {
+        display: none; /* Esconde o nav no mobile */
+    }
 
-  /* Configura o menu pop-up (que será mostrado pelo JavaScript) */
-  nav ul {
-    /* Transforma em menu vertical escondido */
-    position: absolute;
-    top: 70px;
-    /* Deve ser igual à altura do header (70px) */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
+    /* 3. CONFIGURA O MENU POP-UP (que será mostrado pelo JavaScript) */
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
 
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        overflow: hidden; 
+        transition: all 0.3s ease;
+        
+        display: none; /* Garante que a lista não ocupe espaço quando fechada */
+    }
 
-    /* Propriedades de animação/esconder */
-    max-height: 0;
-    opacity: 0;
-    padding: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
+    /* 4. Classe .open que o JavaScript adiciona para MOSTRAR o menu */
+    nav ul.open {
+        display: flex; /* MOSTRA a lista quando a classe 'open' está ativa */
+        max-height: 600px;
+        opacity: 1;
+        padding: 1rem 0;
+    }
 
-    display: none;
-    /* Garante que a lista não ocupe espaço quando fechada */
-  }
+    /* 5. Estilo dos links dentro do menu mobile */
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
 
-  /* Classe .open que o JavaScript adiciona para MOSTRAR o menu */
-  nav ul.open {
-    display: flex;
-    /* MOSTRA a lista quando a classe 'open' está ativa */
-    max-height: 600px;
-    opacity: 1;
-    padding: 1rem 0;
-  }
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        color: var(--primary);
+        font-weight: 600;
+    }
 
-  /* Estilo dos links dentro do menu mobile */
-  nav ul li {
-    width: 100%;
-    text-align: center;
-  }
-
-  nav ul li a {
-    display: block;
-    width: 100%;
-    padding: 12px 0;
-    color: var(--primary);
-    font-weight: 600;
-  }
-
-  nav ul li a:hover {
-    background: #e9ecef;
-  }
-
-  nav ul li a::after {
-    /* Remove o sublinhado animado no mobile */
-    display: none;
-  }
+    nav ul li a::after {
+        display: none;
+    }
 }
