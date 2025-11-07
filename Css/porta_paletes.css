@@ -327,7 +327,7 @@ footer {
     gap: 1.5rem;
   }
 
-  
+
   .hero-left {
     padding: 2rem;
     min-height: 280px;
@@ -362,13 +362,14 @@ footer {
   }
 }
 
-/* Ajustes Finais para Mobile (Menu e Header) */
+
 /* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
 
   /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
   body {
-    padding-top: 70px; /* Altura do header mobile */
+    padding-top: 70px;
+    /* <--- Altura do header mobile */
   }
 
   /* Padroniza a altura do header no mobile */
@@ -379,23 +380,19 @@ footer {
 
   /* MOSTRA o botão hambúrguer */
   .menu-toggle {
-    display: block; /* AQUI ESTÁ A CORREÇÃO: Força o ícone a aparecer */
+    display: block;
   }
 
-  /* ESCONDE A NAVEGAÇÃO PRINCIPAL (OS LINKS HORIZONTAIS) */
-  nav {
-    display: none; /* AQUI ESTÁ A CORREÇÃO PRINCIPAL: Esconde o nav no mobile */
-  }
-
-  /* Configura o menu pop-up (que será mostrado pelo JavaScript) */
+  /* ESCONDE a navegação no layout horizontal */
   nav ul {
-    
+    /* Transforma em menu vertical escondido */
     position: absolute;
-    top: 70px; /* Deve ser igual à altura do header (70px) */
+    top: 70px;
+    /* <--- Deve ser igual à altura do header (70px) */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    
+
     background-color: #f8f9fa;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -403,25 +400,24 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    
-    /* Propriedades de animação/esconder */
+
+    /* Animação para "abrir" o menu */
     max-height: 0;
     opacity: 0;
     padding: 0;
-    overflow: hidden; /* Garante que não haja scroll ou conteúdo visível */
+
     transition: all 0.3s ease;
-    
-    /* O display: flex será aplicado pelo JS na classe .open */
-    display: none; /* Garante que a lista não ocupe espaço quando fechada */
+
   }
+
 
   /* Classe .open que o JavaScript adiciona para MOSTRAR o menu */
   nav ul.open {
-    display: flex; /* MOSTRA a lista quando a classe 'open' está ativa */
+
     max-height: 600px;
     opacity: 1;
     padding: 1rem 0;
-
+    overflow: visible;
   }
 
   /* Estilo dos links dentro do menu mobile */
@@ -430,7 +426,22 @@ footer {
     text-align: center;
   }
 
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: var(--primary);
+    font-weight: 600;
+  }
 
+  nav ul li a:hover {
+    background: #e9ecef;
+  }
+
+  nav ul li a::after {
+    /* Remove o sublinhado animado no mobile */
+    display: none;
+  }
 }
 
 /* ===========================
