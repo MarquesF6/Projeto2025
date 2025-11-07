@@ -295,9 +295,65 @@
 /* ===========================
    NAV (MENU) RESPONSIVO
 =========================== */
+/* ===========================
+   NAV (MENU) RESPONSIVO
+=========================== */
 @media (max-width: 780px) {
+  
+  /* Transforma o menu <ul> em um bloco vertical escondido */
   nav ul {
-    display: none; /* se quiser, posso criar o menu hambúrguer */
+    position: absolute;
+    top: 80px; /* Ajustado para a altura do seu novo header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    
+    background-color: #f8f9fa; /* Fundo sólido para o menu */
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    flex-direction: column; /* Empilha os links */
+    align-items: center;
+    gap: 0.8rem;
+    
+    /* Animação para "abrir" o menu */
+    overflow: hidden;
+    max-height: 0; 
+    opacity: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Classe .open que o JavaScript adiciona para MOSTRAR o menu */
+  nav ul.open {
+    max-height: 600px;
+    opacity: 1;
+    padding: 1rem 0;
+  }
+
+  /* Estilo dos links dentro do menu mobile */
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  nav ul li a:hover {
+    background: #e9ecef;
+  }
+  nav ul li a::after {
+    /* Remove o sublinhado animado no mobile */
+    display: none; 
+  }
+
+  /* Mostra o botão hambúrguer */
+  .menu-toggle {
+    display: block;
   }
 }
 
@@ -325,3 +381,88 @@ img {
   }
 }
  
+/* ===== Header ===== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bg-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  transition: height 0.3s;
+}
+
+/* Efeito de diminuir ao rolar a página */
+header.scrolled {
+  height: 60px;
+}
+
+/* Contêiner que centraliza o conteúdo */
+.nav-container {
+  max-width: var(--max-width);
+  margin: auto;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Oculta o botão hambúrguer em telas grandes */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+/* Menu de navegação (desktop) */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul li a {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+/* Efeito de sublinhado animado (desktop) */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--primary-color);
+  transition: width 0.3s;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Estilo do botão hambúrguer (escondido no desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary); /* Usa a cor primária do seu novo CSS */
+  background: none;
+  border: none;
+  z-index: 1100;
+}
