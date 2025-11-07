@@ -15,6 +15,9 @@
   padding: 0;
 }
 
+/* * ESTILO BASE DO BODY
+ * padding-top define o espaço para o header fixo no desktop (80px)
+ */
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text);
@@ -23,18 +26,9 @@ body {
   padding-top: 80px;
 }
 
-@media (max-width: 780px) {
-  body {
-    padding-top: 0;
-    /* O conteúdo pode começar do topo da tela */
-  }
-
-  /* Ajuste a altura do header no mobile se quiser */
-  header {
-    height: 70px;
-    /* Garante que o menu mobile comece logo abaixo */
-  }
-}
+/* ===========================
+   HEADER & NAV (DESKTOP)
+=========================== */
 
 /* HEADER */
 header {
@@ -43,6 +37,7 @@ header {
   left: 0;
   width: 100%;
   height: 80px;
+  /* Altura padrão no desktop */
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -54,6 +49,7 @@ header {
 
 header.scrolled {
   height: 70px;
+  /* Altura ao rolar */
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
@@ -72,6 +68,18 @@ header.scrolled {
   color: var(--primary);
 }
 
+/* Oculta o botão hambúrguer em telas grandes */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary);
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+/* Menu de navegação (desktop) */
 nav ul {
   list-style: none;
   display: flex;
@@ -105,6 +113,10 @@ nav ul li a:hover::after,
 nav ul li a.active::after {
   width: 100%;
 }
+
+/* ===========================
+   HERO & CONTEÚDO (Geral)
+=========================== */
 
 /* HERO */
 .hero {
@@ -143,7 +155,8 @@ nav ul li a.active::after {
 }
 
 .btn:hover {
-  background: #ff5a5a;
+  background: #00709d;
+  /* Ajuste para uma cor de hover mais coesa */
 }
 
 .btn-outline {
@@ -263,7 +276,8 @@ ul.check li::before {
 }
 
 .cta-contact {
-  display: inline-block;
+  display: block;
+  /* Alterado para block para ocupar a linha */
   margin-top: .8rem;
   background: var(--primary);
   color: #fff;
@@ -288,23 +302,11 @@ footer {
   padding: 2rem 1rem;
 }
 
-/* RESPONSIVO */
-@media (max-width:980px) {
-
-  .hero,
-  .container {
-    flex-direction: column;
-  }
-
-  .hero-right,
-  .aside {
-    width: 100%;
-  }
-}
-
 /* ===========================
-   RESPONSIVIDADE GERAL
+   RESPONSIVIDADE (MEDIA QUERIES)
 =========================== */
+
+/* Ajustes Gerais para Telas Médias */
 @media (max-width: 1200px) {
   .nav-container {
     padding: 0 1rem;
@@ -316,9 +318,7 @@ footer {
   }
 }
 
-/* ===========================
-   HERO RESPONSIVO
-=========================== */
+/* Ajustes para Telas de Tablet (Hero e Colunas) */
 @media (max-width: 980px) {
   .hero {
     flex-direction: column;
@@ -338,12 +338,7 @@ footer {
   .hero-right {
     width: 100%;
   }
-}
 
-/* ===========================
-   CONTAINER RESPONSIVO
-=========================== */
-@media (max-width: 980px) {
   .container {
     flex-direction: column;
     gap: 1.5rem;
@@ -352,6 +347,7 @@ footer {
   .aside {
     width: 100%;
     position: static;
+    /* Remove sticky no mobile */
   }
 
   .aside .card {
@@ -363,33 +359,45 @@ footer {
   }
 }
 
-
-/* ===========================
-   NAV (MENU) RESPONSIVO
-=========================== */
+/* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
 
-  /* Transforma o menu <ul> em um bloco vertical escondido */
+  /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
+  body {
+    padding-top: 70px;
+    /* <--- Altura do header mobile */
+  }
+
+  /* Padroniza a altura do header no mobile */
+  header,
+  header.scrolled {
+    height: 70px;
+  }
+
+  /* MOSTRA o botão hambúrguer */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* ESCONDE a navegação no layout horizontal */
   nav ul {
+    /* Transforma em menu vertical escondido */
     position: absolute;
     top: 70px;
-    /* Ajustado para a altura do seu novo header */
+    /* <--- Deve ser igual à altura do header (70px) */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
 
     background-color: #f8f9fa;
-    /* Fundo sólido para o menu */
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
     flex-direction: column;
-    /* Empilha os links */
     align-items: center;
     gap: 0.8rem;
 
     /* Animação para "abrir" o menu */
-    overflow: hidden;
     max-height: 0;
     opacity: 0;
     padding: 0;
@@ -401,6 +409,7 @@ footer {
     max-height: 600px;
     opacity: 1;
     padding: 1rem 0;
+    overflow: visible;
   }
 
   /* Estilo dos links dentro do menu mobile */
@@ -425,24 +434,17 @@ footer {
     /* Remove o sublinhado animado no mobile */
     display: none;
   }
-
-  /* Mostra o botão hambúrguer */
-  .menu-toggle {
-    display: block;
-  }
 }
 
 /* ===========================
-   IMAGENS RESPONSIVAS
+   IMAGENS & FOOTER
 =========================== */
+
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* ===========================
-   FOOTER RESPONSIVO (MELHORADO)
-=========================== */
 @media (max-width: 768px) {
   footer {
     padding: 2.5rem 1rem;
@@ -456,91 +458,3 @@ img {
   }
 }
 
-/* ===== Header ===== */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--bg-light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  transition: height 0.3s;
-}
-
-/* Efeito de diminuir ao rolar a página */
-header.scrolled {
-  height: 60px;
-}
-
-/* Contêiner que centraliza o conteúdo */
-.nav-container {
-  max-width: var(--max-width);
-  margin: auto;
-  width: 100%;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-
-/* Oculta o botão hambúrguer em telas grandes */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--primary-color);
-  background: none;
-  border: none;
-  z-index: 1100;
-}
-
-/* Menu de navegação (desktop) */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-nav ul li a {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.3rem 0;
-  position: relative;
-}
-
-/* Efeito de sublinhado animado (desktop) */
-nav ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: var(--primary-color);
-  transition: width 0.3s;
-}
-
-nav ul li a:hover::after {
-  width: 100%;
-}
-
-/* Estilo do botão hambúrguer (escondido no desktop) */
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: var(--primary);
-  /* Usa a cor primária do seu novo CSS */
-  background: none;
-  border: none;
-  z-index: 1100;
-}

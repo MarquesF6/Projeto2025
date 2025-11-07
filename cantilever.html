@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,58 +8,59 @@
 
   <link rel="icon" type="image/x-icon" href="imagens/logo.png">
 
-  <!-- Fonte e ícones -->
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <link rel="stylesheet" href="Css/cantilever.css">
 </head>
 <style>
+  /* Estilo para a imagem de fundo do Hero (Mantenha aqui ou mova para o CSS) */
   .hero-left {
-      flex:1;
-      background:linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.15)),
-        url('imagens/cantilever2.png') center/cover no-repeat;
-      border-radius:var(--radius);  
-      color:#fff;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:3rem;
-      box-shadow:var(--shadow);
-      min-height:360px;
-    }
-
-
+    flex: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
+      url('imagens/cantilever2.png') center/cover no-repeat;
+    border-radius: var(--radius);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem;
+    box-shadow: var(--shadow);
+    min-height: 360px;
+  }
 </style>
+
 <body>
 
-  <!-- HEADER -->
+
   <header>
-  <div class="nav-container">
-    <div class="nav-logo">Sinergia Engenharia Brasil</div>
+    <div class="nav-container">
+      <div class="nav-logo">Sinergia Engenharia Brasil</div>
 
-    <div class="menu-toggle" id="menuToggle">
-      <i class="fa-solid fa-bars"></i>
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="produtos.html" class="active">Produtos</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="paletes.html">Paletes</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="produtos.html" class="active">Produtos</a></li>
-        <li><a href="sobre.html">Sobre Nós</a></li>
-        <li><a href="paletes.html">Paletes</a></li>
-        <li><a href="index.html#contact">Contato</a></li>
-        <li><a href="manutencao.html">Manutenção</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-  <!-- HERO -->
+  
   <section class="hero" aria-labelledby="titulo-cantilever">
     <div class="hero-left">
       <h1 id="titulo-cantilever">Estruturas Cantilever — Armazenagem de Cargas Longas e Volumosas</h1>
-      <p>Ideal para armazenar materiais como tubos, perfis metálicos, vigas e chapas. Estruturas robustas e versáteis que garantem fácil acesso e otimização do espaço.</p>
+      <p>Ideal para armazenar materiais como tubos, perfis metálicos, vigas e chapas. Estruturas robustas e versáteis
+        que garantem fácil acesso e otimização do espaço.</p>
       <div class="hero-cta">
         <a href="#detalhes" class="btn">Saiba Mais</a>
         <a href="#contact" class="btn" style="background:transparent;border:2px solid rgba(255,255,255,0.4)">Contato</a>
@@ -72,16 +74,18 @@
         <div class="kpi">Estrutura modular</div>
         <div class="kpi">Norma ABNT NBR 15524</div>
       </div>
-      <p><strong>Aplicações:</strong> Armazenamento de materiais longos e volumosos, como tubos, perfis metálicos, vigas e chapas.</p>
+      <p><strong>Aplicações:</strong> Armazenamento de materiais longos e volumosos, como tubos, perfis metálicos, vigas
+        e chapas.</p>
     </div>
   </section>
 
-  <!-- CONTEÚDO -->
+
   <main class="container" id="detalhes">
     <section>
       <div class="card">
         <h2>O que é o sistema Cantilever?</h2>
-        <p class="subtle">O sistema Cantilever é uma solução de armazenagem composta por colunas verticais e braços horizontais, projetada para armazenar cargas longas e volumosas de forma segura e organizada.</p>
+        <p class="subtle">O sistema Cantilever é uma solução de armazenagem composta por colunas verticais e braços
+          horizontais, projetada para armazenar cargas longas e volumosas de forma segura e organizada.</p>
 
         <hr>
 
@@ -108,7 +112,8 @@
         <hr>
 
         <h2>Aplicações típicas</h2>
-        <p class="subtle">Indicado para empresas de armazenagem, indústrias, distribuidores e operadores logísticos. Pode ser usado para armazenar materiais como tubos, perfis metálicos, vigas e chapas.</p>
+        <p class="subtle">Indicado para empresas de armazenagem, indústrias, distribuidores e operadores logísticos.
+          Pode ser usado para armazenar materiais como tubos, perfis metálicos, vigas e chapas.</p>
 
         <hr>
 
@@ -123,14 +128,16 @@
         <hr>
 
         <h2>Inspeção e manutenção</h2>
-        <p class="subtle">A Sinergia Engenharia Brasil oferece serviços de inspeção técnica mensal, anual e extraordinária, conforme as normas da ABNT.</p>
+        <p class="subtle">A Sinergia Engenharia Brasil oferece serviços de inspeção técnica mensal, anual e
+          extraordinária, conforme as normas da ABNT.</p>
       </div>
     </section>
 
     <aside class="aside">
       <div class="card">
         <h3>Serviço Sinergia</h3>
-        <p class="subtle">Engenharia especializada em cálculo estrutural e regularização de sistemas Cantilever. Emissão de ARTs, laudos técnicos e projetos de otimização.</p>
+        <p class="subtle">Engenharia especializada em cálculo estrutural e regularização de sistemas Cantilever. Emissão
+          de ARTs, laudos técnicos e projetos de otimização.</p>
         <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Cantilever" class="cta-contact">Solicitar Orçamento</a>
 
         <div style="margin-top:1rem; font-size:.95rem">
@@ -145,7 +152,8 @@
   <section id="contact" style="max-width:var(--maxw); margin:2rem auto; padding:0 1.25rem;">
     <div class="card" style="text-align:center">
       <h3>Precisa de ajuda com projeto Cantilever?</h3>
-      <p class="subtle">Enviamos proposta técnica completa com cálculos estruturais, especificação de materiais e ART.</p>
+      <p class="subtle">Enviamos proposta técnica completa com cálculos estruturais, especificação de materiais e ART.
+      </p>
       <a href="mailto:thigobrasil@gmail.com?subject=Projeto Cantilever" class="cta-contact">Entre em contato</a>
       <a href="manutencao.html" class="cta-contact">Saiba mais sobre manutenção</a>
     </div>
@@ -156,27 +164,31 @@
   </footer>
 
   <script>
-  // Script para o Header "encolher" ao rolar
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  });
+    // Script para o Header "encolher" ao rolar
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
 
-  // Script ADICIONADO para o menu mobile
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.querySelector('nav ul');
+    // Script para o menu mobile (hambúrguer)
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.querySelector('nav ul');
 
-  menuToggle.addEventListener('click', () => {
-    // Adiciona/Remove a classe 'open' do <ul>
-    navMenu.classList.toggle('open');
-    
-    // Troca o ícone de 'fa-bars' (hambúrguer) para 'fa-xmark' (X)
-    const icon = menuToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-xmark');
-  });
-</script>
-  
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        // Adiciona/Remove a classe 'open' do <ul>
+        navMenu.classList.toggle('open');
+
+        // Troca o ícone de 'fa-bars' (hambúrguer) para 'fa-xmark' (X)
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+    }
+  </script>
+
 </body>
+
 </html>
+
