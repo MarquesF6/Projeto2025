@@ -163,31 +163,15 @@ window.addEventListener('scroll', () => {
   else header.classList.remove('scrolled');
 });
 
-// =========================
-// MENU MOBILE
-// =========================
-const menuBtn = document.querySelector('.menu-btn');
-const mobileNav = document.querySelector('.mobile-nav');
-
-// Abre/fecha o menu
-menuBtn.addEventListener('click', () => {
-  mobileNav.classList.toggle('show');
-});
-
-// Fecha ao clicar em qualquer link
-document.querySelectorAll('.mobile-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileNav.classList.remove('show');
-  });
-});
-
-// Fecha ao clicar fora do menu
-document.addEventListener('click', (event) => {
-  if (!mobileNav.contains(event.target) &&
-      !menuBtn.contains(event.target)) {
-    mobileNav.classList.remove('show');
-  }
-});
+// Menu mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      menuToggle.querySelector('i').classList.toggle('fa-bars');
+      menuToggle.querySelector('i').classList.toggle('fa-xmark');
+    });
+    
 </script>
 
 </body>
