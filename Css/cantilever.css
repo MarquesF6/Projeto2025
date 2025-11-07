@@ -474,3 +474,84 @@ nav ul {
   display: none !important;
 }
 
+
+/* ==========================
+   Navbar base (desktop)
+   ========================== */
+nav { z-index: 1050; }
+nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+/* Botão menu (aparece somente mobile) */
+.menu-toggle {
+  display: none; /* mostrado em @media menor */
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  z-index: 2100;
+}
+
+/* ==========================
+   FULLSCREEN MENU (overlay)
+   ========================== */
+#fullscreenMenu {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+  z-index: 2000;
+}
+
+#fullscreenMenu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#fullscreenMenu .menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+#fullscreenMenu .menu-inner a {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .18s ease, color .18s ease;
+}
+
+#fullscreenMenu .menu-inner a:focus,
+#fullscreenMenu .menu-inner a:hover {
+  color: #ee964b;
+  transform: translateY(-3px);
+}
+
+/* ==========================
+   RESPONSIVO: esconder nav desktop e ativar overlay
+   ========================== */
+@media (max-width: 900px) {
+  /* esconder lista inline do desktop */
+  nav .nav-list {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Nota: nav .nav-list volta a aparecer automaticamente em telas maiores */
