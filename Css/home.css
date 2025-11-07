@@ -721,7 +721,6 @@ sobre o item pai (.dropdown). Este é o comportamento "hover" para desktop. */
   background-color: #087e8b;
 }
 
-/*COPIAR A PARTIR DAQUI*/
 /* ===== MENU RESPONSIVO (SEM EFEITO VIDRO) ===== */
 
 /* Estilo do botão "hamburger" (menu-toggle) para abrir o menu no mobile.
@@ -968,9 +967,7 @@ para o submenu (dropdown) no mobile (até 900px). */
 
 }
 
-/* ATENÇÃO: Esta chave '}' extra parece ser um erro de sintaxe no seu CSS 
-     original (ela fecha a media query max-width: 900px, mas está 
-     fora de lugar ou duplicada). Recomendo revisar. */
+
 
 
 /* ===== FOOTER RESPONSIVO ===== */
@@ -993,8 +990,8 @@ para o submenu (dropdown) no mobile (até 900px). */
   }
 
   .footer-section {
-    width: 100%;
-    max-width: 350px;
+    width: 50%;
+    max-width: 200px;
   }
 
   .footer-section h4 {
