@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,26 +15,26 @@
 </head>
 
 <body>
-    <header id="pageHeader">
-        <div class="nav-container">
-            <div class="nav-logo">Sinergia Engenharia Brasil</div>
+  <header>
+    <div class="nav-container">
+        <div class="nav-logo">Sinergia Engenharia Brasil </div>
 
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="produtos.html" class="active">Produtos</a></li>
-                    <li><a href="paletes.html">Paletes</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="index.html#contact">Contato</a></li>
-                    <li><a href="manutencao.html">Manutenção</a></li>
-                </ul>
-            </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
         </div>
-    </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="produtos.html" class="active">Produtos</a></li> 
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="paletes.html">Paletes</a></li>
+                <li><a href="index.html#contact">Contato</a></li>
+                <li><a href="manutencao.html">Manutenção</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
     <section class="hero" id="produtos">
         <h1>Soluções em Armazenagem</h1>
@@ -98,43 +98,30 @@
         <small>Eng. Thiago Brasil de Araújo | <a href="mailto:thigobrasil@gmail.com" style="color:#fff;text-decoration:underline;">thigobrasil@gmail.com</a> | (11) 98240-2134</small>
     </footer>
 
-    <script>
-        // Script para o Header "encolher" ao rolar (usando o ID pageHeader)
-        window.addEventListener('scroll', () => {
-            // Alterado para usar o ID
-            const header = document.getElementById('pageHeader');
-            if (header && window.scrollY > 50) header.classList.add('scrolled');
-            else if (header) header.classList.remove('scrolled');
-        });
+     <script>
+    // Script para o Header "encolher" ao rolar
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
 
-        // Script para o menu mobile (hambúrguer)
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.querySelector('nav ul');
+    // Script para o menu mobile (hambúrguer)
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.querySelector('nav ul');
 
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                // Adiciona/Remove a classe 'open' do <ul>
-                navMenu.classList.toggle('open');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        // Adiciona/Remove a classe 'open' do <ul>
+        navMenu.classList.toggle('open');
 
-                // Troca o ícone de 'fa-bars' (hambúrguer) para 'fa-xmark' (X)
-                const icon = menuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-xmark');
-            });
-        }
-        
-        // Scroll suave (mantido)
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', e => {
-                const href = link.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+        // Troca o ícone de 'fa-bars' (hambúrguer) para 'fa-xmark' (X)
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+    }
+  </script>
 </body>
 
 </html>

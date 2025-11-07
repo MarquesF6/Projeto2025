@@ -130,13 +130,27 @@ nav ul li a.active::after {
   background: linear-gradient(135deg, #0077a8 0%, #003f5c 100%);
   /* Fundo azul do HERO */
   color: #fff;
-  
+
   border-radius: var(--radius);
   padding: 3rem 2rem;
   /* Aumentado o padding para visual do HERO */
   box-shadow: var(--shadow);
   text-align: center;
 }
+
+.hero-left {
+      flex:1;
+      background:linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.15)),
+        url('imagens/portaPaletes.jpg') center/cover no-repeat;
+      border-radius:var(--radius);
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:3rem;
+      box-shadow:var(--shadow);
+      min-height:360px;
+    }
 
 .hero h1 {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
