@@ -15,12 +15,15 @@
   padding: 0;
 }
 
+/* * ESTILO BASE DO BODY
+ * padding-top define o espaço para o header fixo no desktop (80px)
+ */
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  padding-top: 90px; /* Mantém o padding para desktop */
+  padding-top: 80px;
 }
 
 /* ===========================
@@ -34,6 +37,7 @@ header {
   left: 0;
   width: 100%;
   height: 80px;
+  /* Altura padrão no desktop */
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -45,6 +49,7 @@ header {
 
 header.scrolled {
   height: 70px;
+  /* Altura ao rolar */
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
@@ -63,7 +68,7 @@ header.scrolled {
   color: var(--primary);
 }
 
-/* NOVO: Estilo para o botão hambúrguer (escondido no desktop) */
+/* Oculta o botão hambúrguer em telas grandes */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -74,6 +79,7 @@ header.scrolled {
   z-index: 1100;
 }
 
+/* Menu de navegação (desktop) */
 nav ul {
   list-style: none;
   display: flex;
@@ -109,7 +115,7 @@ nav ul li a.active::after {
 }
 
 /* ===========================
-   HERO & CONTEÚDO
+   HERO & CONTEÚDO (Geral)
 =========================== */
 
 /* HERO */
@@ -122,19 +128,7 @@ nav ul li a.active::after {
   padding: 0 1.25rem;
 }
 
-.hero-left {
-  flex: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
-    url('imagens/drive-in2.png') center/cover no-repeat;
-  border-radius: var(--radius);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 3rem;
-  box-shadow: var(--shadow);
-  min-height: 360px;
-}
+
 
 .hero-left h1 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
@@ -163,7 +157,8 @@ nav ul li a.active::after {
 }
 
 .btn:hover {
-  background: #00709d; /* Cor de hover ajustada */
+  background: #00709d;
+  /* Ajuste para uma cor de hover mais coesa */
 }
 
 .btn-outline {
@@ -283,7 +278,8 @@ ul.check li::before {
 }
 
 .cta-contact {
-  display: inline-block;
+  display: block;
+  /* Alterado para block para ocupar a linha */
   margin-top: .8rem;
   background: var(--primary);
   color: #fff;
@@ -309,39 +305,70 @@ footer {
 }
 
 /* ===========================
-   RESPONSIVIDADE GERAL
+   RESPONSIVIDADE (MEDIA QUERIES)
 =========================== */
 
-/* Telas de Tablet (Ajuste de Conteúdo) */
-@media (max-width: 980px) {
+/* Ajustes Gerais para Telas Médias */
+@media (max-width: 1200px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
   .hero,
   .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Ajustes para Telas de Tablet (Hero e Colunas) */
+@media (max-width: 980px) {
+  .hero {
     flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .hero-right,
-  .aside {
-    width: 100%;
-  }
-
-  /* Ajustes do HERO no Tablet */
+  
   .hero-left {
     padding: 2rem;
     min-height: 280px;
     text-align: center;
   }
+
   .hero-cta {
     justify-content: center;
   }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .aside {
+    width: 100%;
+    position: static;
+    /* Remove sticky no mobile */
+  }
+
+  .aside .card {
+    position: static;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
 }
 
-
-/* Telas Mobile (Ajuste Crítico do Header) */
+/* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
 
-  /* CORREÇÃO CRÍTICA: Define o padding-top do body igual à altura do header mobile (70px) */
+  /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
   body {
     padding-top: 70px;
+    /* <--- Altura do header mobile */
   }
 
   /* Padroniza a altura do header no mobile */
@@ -355,14 +382,16 @@ footer {
     display: block;
   }
 
-  /* Transforma a lista de links em um menu vertical escondido */
+  /* ESCONDE a navegação no layout horizontal */
   nav ul {
+    /* Transforma em menu vertical escondido */
     position: absolute;
-    top: 70px; /* DEVE ser igual à altura do header */
+    top: 70px;
+    /* <--- Deve ser igual à altura do header (70px) */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    
+
     background-color: #f8f9fa;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -370,8 +399,9 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    
-    max-height: 0; /* Escondido por padrão */
+
+    /* Animação para "abrir" o menu */
+    max-height: 0;
     opacity: 0;
     padding: 0;
     transition: all 0.3s ease;
@@ -410,7 +440,7 @@ footer {
 }
 
 /* ===========================
-   OUTROS
+   IMAGENS & FOOTER
 =========================== */
 
 img {
@@ -430,3 +460,4 @@ img {
     line-height: 1.5;
   }
 }
+
