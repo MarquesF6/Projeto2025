@@ -732,7 +732,6 @@ sobre o item pai (.dropdown). Este é o comportamento "hover" para desktop. */
   color: var(--primary-color);
   background: none;
   border: none;
-  float : right;
   z-index: 1100;
 }
 
