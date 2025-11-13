@@ -97,7 +97,7 @@ header.scrolled {
 
 /* Estilo para o logo no cabeçalho. */
 .nav-logo {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--primary-color);
 }
