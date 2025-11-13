@@ -458,3 +458,71 @@ img {
   }
 }
 
+/* =============================
+   MENU MOBILE - OVERLAY CENTRAL
+============================= */
+#menuOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+#menuOverlay.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.menu-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 85%;
+  max-width: 360px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  position: relative;
+  text-align: center;
+}
+
+.menu-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.menu-card ul li {
+  margin-bottom: 1rem;
+}
+
+.menu-card ul li a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.menu-card ul li a:hover {
+  text-decoration: underline;
+}
+
+.close-menu {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
