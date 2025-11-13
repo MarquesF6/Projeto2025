@@ -223,3 +223,120 @@
       .aside, .hero-right { width: 100%; }
       .hero, .container { flex-direction: column; }
     }
+    
+    /* Header básico */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .logo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #004080;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #004080;
+  font-weight: 500;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #004080;
+  cursor: pointer;
+}
+
+/* ===============================
+   MENU MOBILE
+================================== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.mobile-menu-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobile-menu-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 20px;
+  width: 85%;
+  max-width: 380px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+.mobile-menu-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu-card ul li {
+  margin: 18px 0;
+}
+
+.mobile-menu-card ul li a {
+  text-decoration: none;
+  color: #004080;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.close-menu {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #004080;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

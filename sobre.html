@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -14,41 +15,58 @@
 
   <style>
     .hero-left {
-      flex:1;
-      background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15)),
+      flex: 1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15)),
         url('imagens/sobre.png') center/cover no-repeat;
-      border-radius:var(--radius);
-      color:#fff;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:3rem;
-      box-shadow:var(--shadow);
-      min-height:360px;
+      border-radius: var(--radius);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      min-height: 360px;
     }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
-  <header id="pageHeader">
-    <div class="nav-container">
-      <div class="nav-logo">Sinergia Engenharia Brasil</div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <nav>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Sinergia Engenharia Brasil</div>
+
+      <!-- Botão hamburguer -->
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+
+      <!-- Links desktop -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="paletes.html">Paletes</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="manutencao.html">Manutenção</a></li>
+      </ul>
+    </nav>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu-overlay">
+      <div class="mobile-menu-card">
+        <button class="close-menu" aria-label="Fechar menu">&times;</button>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="sobre.html" class="active">Sobre Nós</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
           <li><a href="paletes.html">Paletes</a></li>
-          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="contato.html">Contato</a></li>
           <li><a href="manutencao.html">Manutenção</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
   </header>
+
 
   <!-- MENU FULLSCREEN -->
   <div id="fullscreenMenu" aria-hidden="true">
@@ -66,7 +84,8 @@
   <section class="hero" aria-labelledby="titulo-sobre">
     <div class="hero-left">
       <h1 id="titulo-sobre">Sinergia Engenharia Brasil</h1>
-      <p>Engenharia especializada em soluções estruturais para sistemas de armazenagem e logística. Desde 2017, atuando em todo o Brasil com foco em eficiência, segurança e conformidade técnica.</p>
+      <p>Engenharia especializada em soluções estruturais para sistemas de armazenagem e logística. Desde 2017, atuando
+        em todo o Brasil com foco em eficiência, segurança e conformidade técnica.</p>
     </div>
 
     <div class="hero-right">
@@ -84,8 +103,11 @@
     <section>
       <div class="card">
         <h2>🏗️ Resumo da Empresa</h2>
-        <p class="subtle">A <strong>Sinergia Engenharia Brasil</strong> é parceira estratégica no fornecimento de soluções de engenharia de alta precisão para empresas de armazenagem e centros de distribuição. Desde 2017, já regularizou mais de 200 projetos, sempre com foco na eficiência operacional, documentação técnica rigorosa e conformidade legal.</p>
-      
+        <p class="subtle">A <strong>Sinergia Engenharia Brasil</strong> é parceira estratégica no fornecimento de
+          soluções de engenharia de alta precisão para empresas de armazenagem e centros de distribuição. Desde 2017, já
+          regularizou mais de 200 projetos, sempre com foco na eficiência operacional, documentação técnica rigorosa e
+          conformidade legal.</p>
+
       </div>
 
       <div class="card">
@@ -106,7 +128,8 @@
         <p><strong>📧</strong> <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a></p>
         <p><strong>📱</strong> <a href="https://wa.me/5511982402134" target="_blank">(11) 98240-2134</a></p>
 
-        <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Sinergia Engenharia" class="cta-contact">Solicitar Orçamento</a>
+        <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Sinergia Engenharia" class="cta-contact">Solicitar
+          Orçamento</a>
       </div>
     </aside>
   </main>
@@ -124,39 +147,25 @@
       header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Menu fullscreen
-    const menuToggle = document.getElementById('menuToggle');
-    const fullMenu = document.getElementById('fullscreenMenu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const closeMenu = document.querySelector('.close-menu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
 
-    if (menuToggle && fullMenu) {
-      menuToggle.addEventListener('click', () => {
-        fullMenu.classList.toggle('open');
-        const i = menuToggle.querySelector('i');
-        if (i) {
-          i.classList.toggle('fa-bars');
-          i.classList.toggle('fa-xmark');
-        }
-      });
+    menuToggle.addEventListener('click', () => {
+      overlay.classList.add('active');
+    });
 
-      // Fechar ao clicar em um link
-      document.querySelectorAll('#fullscreenMenu a').forEach(link => {
-        link.addEventListener('click', () => {
-          fullMenu.classList.remove('open');
-          const i = menuToggle.querySelector('i');
-          if (i) { i.classList.add('fa-bars'); i.classList.remove('fa-xmark'); }
-        });
-      });
+    closeMenu.addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
 
-      // Fechar com ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && fullMenu.classList.contains('open')) {
-          fullMenu.classList.remove('open');
-          const i = menuToggle.querySelector('i');
-          if (i) { i.classList.add('fa-bars'); i.classList.remove('fa-xmark'); }
-        }
-      });
-    }
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+      }
+    });
   </script>
 
 </body>
+
 </html>
