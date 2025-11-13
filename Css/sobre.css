@@ -15,9 +15,6 @@
   padding: 0;
 }
 
-/* * ESTILO BASE DO BODY
- * padding-top define o espaço para o header fixo no desktop (80px)
- */
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--text);
@@ -27,17 +24,14 @@ body {
 }
 
 /* ===========================
-   HEADER & NAV (DESKTOP)
+   HEADER & NAV
 =========================== */
-
-/* HEADER */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 80px;
-  /* Altura padrão no desktop */
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -49,7 +43,6 @@ header {
 
 header.scrolled {
   height: 70px;
-  /* Altura ao rolar */
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
@@ -68,7 +61,6 @@ header.scrolled {
   color: var(--primary);
 }
 
-/* Oculta o botão hambúrguer em telas grandes */
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -79,7 +71,6 @@ header.scrolled {
   z-index: 1100;
 }
 
-/* Menu de navegação (desktop) */
 nav ul {
   list-style: none;
   display: flex;
@@ -115,27 +106,29 @@ nav ul li a.active::after {
 }
 
 /* ===========================
-   HERO & CONTEÚDO (Geral)
+   HERO (NOVO ESTILO WIDE)
 =========================== */
-
-/* HERO */
-.hero {
+.hero-full-width {
   max-width: var(--maxw);
   margin: 1.5rem auto;
+  /* Aqui definimos a imagem de fundo para o banner inteiro */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+              url('imagens/sobre.png') center/cover no-repeat;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-height: 380px;
   display: flex;
-  align-items: stretch;
-  gap: 2rem;
-  padding: 0 1.25rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  color: #fff;
 }
 
-.hero-left h1 {
+.hero-content h1 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  margin-bottom: .5rem;
-}
-
-.hero-left p {
-  max-width: 60ch;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-cta {
@@ -156,48 +149,20 @@ nav ul li a.active::after {
 
 .btn:hover {
   background: #00709d;
-  /* Ajuste para uma cor de hover mais coesa */
 }
 
 .btn-outline {
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
-.hero-right {
-  width: 360px;
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 1.6rem;
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.hero-right h3 {
-  color: var(--primary);
-  margin-bottom: .8rem;
-}
-
-.specs-quick {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-}
-
-.specs-quick .kpi {
-  background: #f3f8fb;
-  color: var(--primary);
-  font-weight: 600;
-  padding: .6rem .9rem;
-  border-radius: 8px;
-}
-
-.hero-right p {
-  margin-top: .8rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-/* CONTEÚDO */
+/* ===========================
+   LAYOUT PRINCIPAL (COLUNAS)
+=========================== */
 .container {
   max-width: var(--maxw);
   margin: 2rem auto;
@@ -207,10 +172,19 @@ nav ul li a.active::after {
   gap: 2rem;
 }
 
-.container>section {
-  flex: 1;
+.main-content {
+  flex: 1; /* Ocupa o espaço restante */
 }
 
+.intro-text {
+  margin-bottom: 2rem;
+}
+
+.intro-text h2 {
+  margin-bottom: 1rem;
+}
+
+/* CARDS E TIPOGRAFIA */
 .card {
   background: var(--card);
   border-radius: var(--radius);
@@ -221,12 +195,17 @@ nav ul li a.active::after {
 
 h2 {
   color: var(--primary);
-  margin-bottom: .6rem;
+  margin-bottom: .8rem;
+}
+
+h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 p.subtle {
   color: #555;
-  margin-bottom: 1rem;
   line-height: 1.6;
 }
 
@@ -242,10 +221,11 @@ ul.check {
 }
 
 ul.check li {
-  padding-left: 1.4rem;
+  padding-left: 1.6rem;
   position: relative;
-  margin-bottom: .5rem;
+  margin-bottom: .6rem;
   line-height: 1.5;
+  color: #444;
 }
 
 ul.check li::before {
@@ -254,35 +234,66 @@ ul.check li::before {
   font-weight: 900;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 2px;
   color: var(--primary);
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
+@media(min-width: 768px){
+  .two-col { grid-template-columns: 1fr 1fr; }
+}
 
-/* ASIDE */
+/* ===========================
+   ASIDE (SIDEBAR)
+=========================== */
 .aside {
   width: 360px;
+  flex-shrink: 0; /* Impede que a sidebar encolha */
 }
 
 .aside .card {
+  /* Sticky behavior */
   position: sticky;
-  top: 108px;
+  top: 100px; 
+}
+
+/* Estilo específico para a lista de specs na sidebar */
+.specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  background: #f3f8fb;
+  padding: 0.8rem;
+  border-radius: 8px;
+}
+
+.spec-item strong {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.spec-item span {
+  color: #333;
 }
 
 .cta-contact {
   display: block;
-  /* Alterado para block para ocupar a linha */
-  margin-top: .8rem;
+  margin-top: 1rem;
   background: var(--primary);
   color: #fff;
   text-decoration: none;
-  padding: .7rem 1.2rem;
+  padding: .8rem;
   border-radius: 8px;
   font-weight: 600;
   text-align: center;
@@ -293,7 +304,9 @@ ul.check li::before {
   background: #00709d;
 }
 
-/* FOOTER */
+/* ===========================
+   FOOTER
+=========================== */
 footer {
   margin-top: 3rem;
   background: var(--primary);
@@ -303,226 +316,69 @@ footer {
 }
 
 /* ===========================
-   RESPONSIVIDADE (MEDIA QUERIES)
+   RESPONSIVIDADE
 =========================== */
-
-/* Ajustes Gerais para Telas Médias */
 @media (max-width: 1200px) {
-  .nav-container {
-    padding: 0 1rem;
-  }
-
-  .hero,
-  .container {
-    padding: 0 1rem;
+  .hero-full-width, .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-/* Ajustes para Telas de Tablet (Hero e Colunas) */
-@media (max-width: 980px) {
-  .hero {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .hero-left {
-    padding: 2rem;
-    min-height: 280px;
-    text-align: center;
-  }
-
-  .hero-cta {
-    justify-content: center;
-  }
-
-  .hero-right {
-    width: 100%;
-  }
-
+@media (max-width: 900px) {
   .container {
     flex-direction: column;
-    gap: 1.5rem;
   }
-
+  
   .aside {
     width: 100%;
-    position: static;
-    /* Remove sticky no mobile */
   }
-
+  
   .aside .card {
-    position: static;
+    position: static; /* Remove sticky no mobile */
   }
-
-  .two-col {
-    grid-template-columns: 1fr;
+  
+  .hero-full-width {
+    padding: 2rem;
+    min-height: 300px;
   }
 }
 
-/* Ajustes Finais para Mobile (Menu e Header) */
 @media (max-width: 780px) {
-
-  /* CORREÇÃO CRÍTICA: Ajusta o padding-top do body para o mobile */
-  body {
-    padding-top: 70px;
-    /* <--- Altura do header mobile */
-  }
-
-  /* Padroniza a altura do header no mobile */
-  header,
-  header.scrolled {
-    height: 70px;
-  }
-
-  /* MOSTRA o botão hambúrguer */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* ESCONDE a navegação no layout horizontal */
+  body { padding-top: 70px; }
+  header, header.scrolled { height: 70px; }
+  
+  .menu-toggle { display: block; }
+  
   nav ul {
-    /* Transforma em menu vertical escondido */
     position: absolute;
     top: 70px;
-    /* <--- Deve ser igual à altura do header (70px) */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-
-    background-color: #f8f9fa;
+    background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-
-    /* Animação para "abrir" o menu */
+    gap: 0;
     max-height: 0;
     opacity: 0;
-    padding: 0;
+    overflow: hidden;
     transition: all 0.3s ease;
+    padding: 0;
   }
-
-  /* Classe .open que o JavaScript adiciona para MOSTRAR o menu */
+  
   nav ul.open {
-    max-height: 600px;
+    max-height: 500px;
     opacity: 1;
     padding: 1rem 0;
     overflow: visible;
   }
-
-  /* Estilo dos links dentro do menu mobile */
-  nav ul li {
-    width: 100%;
-    text-align: center;
-  }
-
+  
+  nav ul li { width: 100%; text-align: center; }
   nav ul li a {
     display: block;
-    width: 100%;
     padding: 12px 0;
-    color: var(--primary);
-    font-weight: 600;
-  }
-
-  nav ul li a:hover {
-    background: #e9ecef;
-  }
-
-  nav ul li a::after {
-    /* Remove o sublinhado animado no mobile */
-    display: none;
   }
 }
-
-/* ===========================
-   IMAGENS & FOOTER
-=========================== */
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  footer {
-    padding: 2.5rem 1rem;
-    text-align: center;
-  }
-
-  footer small {
-    display: block;
-    font-size: .95rem;
-    line-height: 1.5;
-  }
-}
-
-/* =============================
-   MENU MOBILE - OVERLAY CENTRAL
-============================= */
-#menuOverlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-#menuOverlay.show {
-  display: flex;
-  animation: fadeIn 0.3s ease;
-}
-
-.menu-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 2rem;
-  width: 85%;
-  max-width: 360px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  position: relative;
-  text-align: center;
-}
-
-.menu-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0 0;
-}
-
-.menu-card ul li {
-  margin-bottom: 1rem;
-}
-
-.menu-card ul li a {
-  color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-.menu-card ul li a:hover {
-  text-decoration: underline;
-}
-
-.close-menu {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--primary);
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-

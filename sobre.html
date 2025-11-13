@@ -2,19 +2,22 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sobre Nós — Sinergia Engenharia Brasil</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sobre — Sinergia Engenharia Brasil</title>
+
   <link rel="icon" type="image/x-icon" href="imagens/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="Css/cantilever.css">
+  <link rel="stylesheet" href="Css/sobre.css">
 </head>
 
 <body>
+
   <header>
     <div class="nav-container">
       <div class="nav-logo">Sinergia Engenharia Brasil</div>
+
       <div class="menu-toggle" id="menuToggle">
         <i class="fa-solid fa-bars"></i>
       </div>
@@ -32,158 +35,126 @@
     </div>
   </header>
 
-  <!-- Overlay do Menu Mobile -->
-  <div id="menuOverlay">
-    <div class="menu-card">
-      <button class="close-menu" id="closeMenu"><i class="fa-solid fa-xmark"></i></button>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="produtos.html">Produtos</a></li>
-        <li><a href="sobre.html" class="active">Sobre Nós</a></li>
-        <li><a href="paletes.html">Paletes</a></li>
-        <li><a href="index.html#contact">Contato</a></li>
-        <li><a href="manutencao.html">Manutenção</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <section class="hero" aria-labelledby="titulo-sobre">
-    <div class="hero-left">
-      <h1 id="titulo-sobre">
-        Engenharia especializada em soluções estruturais para sistemas de armazenagem e logística.
-        Desde 2017, atuando em todo o Brasil com foco em eficiência, segurança e conformidade técnica.
-      </h1>
+  <section class="hero-full-width" aria-labelledby="titulo-sobre">
+    <div class="hero-content">
+      <h1 id="titulo-sobre">Engenharia especializada em soluções estruturais para sistemas de armazenagem e logística. Desde 2017, atuanado em todo o Brasil com foco em eficiência, segurança e conformidade técnica.</h1>
       <div class="hero-cta">
         <a href="#detalhes" class="btn">Saiba Mais</a>
         <a href="#contact" class="btn btn-outline">Contato</a>
       </div>
     </div>
-
-    <div class="hero-right">
-      <h3>Informações Gerais</h3>
-      <div class="specs-quick">
-        <div class="kpi">Fundação: 2017</div>
-        <div class="kpi">Atendimento: Todo o Brasil</div>
-        <div class="kpi">Público-alvo: Empresas de Armazenagem e Logística</div>
-      </div>
-    </div>
   </section>
 
   <main class="container" id="detalhes">
-    <section>
-      <div class="card">
+    <section class="main-content">
+      
+      <div class="intro-text">
         <h2>Resumo da Empresa</h2>
-        <p class="subtle">
-          A Sinergia Engenharia Brasil é parceira estratégica no fornecimento de soluções de engenharia de alta precisão
-          para empresas de armazenagem e centros de distribuição. Desde 2017, já regularizou mais de 200 projetos,
-          sempre
-          com foco na eficiência operacional, documentação técnica rigorosa e conformidade legal.
-        </p>
+        <p class="subtle">A Sinergia Engenharia Brasil é parceira estratégica no fornecimento de soluções de engenharia de alta precisão para empresas de armazenagem e centros de distribuição. Desde 2017, já regularizou mais de 200 projetos, sempre com foco na eficiência operacional, documentação técnica rigorosa e conformidade legal.</p>
+      </div>
+      <hr>
+
+      <div class="card">
+        <h2>Serviços técnicos essenciais:</h2>
+        <div class="two-col">
+          <div>
+            <ul class="check">
+              <li>ARTs (Anotações de Responsabilidade Técnica): Registro legal obrigatório.</li>
+              <li>Laudos e Pareceres Técnicos: Avaliação da integridade estrutural e operacional.</li>
+              <li>Projetos de Otimização: Desenvolvimento de soluções executivas para maximizar capacidade e fluxo.</li>
+              <li>Quesitos Técnicos: Apoio técnico-jurídico em perícias e processos.</li>
+            </ul>
+            <p class="subtle" style="margin-top: 1rem;"><strong>Missão:</strong> Garantir a segurança, eficiência e conformidade da sua operação logística.</p>
+          </div>
+        </div>
+
         <hr>
 
-        <h2>Serviços técnicos essenciais</h2>
-        <ul class="check">
-          <li>ARTs (Anotações de Responsabilidade Técnica): Registro legal obrigatório.</li>
-          <li>Laudos e Pareceres Técnicos: Avaliação da integridade estrutural e operacional.</li>
-          <li>Projetos de Otimização: Desenvolvimento de soluções executivas para maximizar capacidade e fluxo.</li>
-          <li>Quesitos Técnicos: Apoio técnico-jurídico em perícias e processos.</li>
-        </ul>
-        <p class="subtle"><strong>Missão:</strong> Garantir a segurança, eficiência e conformidade da sua operação
-          logística.</p>
-
-        <hr>
         <h2>Diferenciais</h2>
-        <p class="subtle">
-          Indicado para empresas de armazenagem, indústrias, distribuidores e operadores logísticos. Pode ser usado para
-          armazenar materiais como tubos, perfis metálicos, vigas e chapas.
-        </p>
-
-        <hr>
-        <h2>Diferenciais Técnicos</h2>
         <ul class="check">
-          <li><strong>Verticalização Inteligente:</strong> Estruturas integradas com porta-paletes, push-back, drive-in
-            e mezaninos metálicos.</li>
-          <li><strong>Flexibilidade e Escalabilidade:</strong> Projetos preparados para futuras expansões logísticas.
-          </li>
-          <li><strong>Conformidade e Durabilidade:</strong> Engenharia especializada garantindo segurança e longa vida
-            útil.</li>
-          <li><strong>Cálculos Estruturais:</strong> Precisão para cargas dinâmicas e estáticas.</li>
+          <li><strong>Verticalização Inteligente:</strong> Estruturas integradas com porta-paletes, push-back, drive-in e mezaninos metálicos, otimizando o uso da altura do armazém.</li>
+          <li><strong>Flexibilidade e Escalabilidade:</strong> Projetos preparados para futuras expansões logísticas.</li>
+          <li><strong>Conformidade e Durabilidade:</strong> Engenharia especializada garantindo segurança e longa vida útil.</li>
+          <li><strong>Cálculos Estruturais:</strong> Precisão para cargas dinâmicas e estáticas de armazéns logísticos.</li>
           <li><strong>Normas ABNT:</strong> Atendimento às normas técnicas e de segurança.</li>
         </ul>
 
         <hr>
+
         <h2>Soluções Oferecidas</h2>
-        <ul class="subtle">
-          <li>Laudos Técnicos Estruturais</li>
+        <ul class="check"> <li>Laudos Técnicos Estruturais</li>
           <li>Projetos de Estruturas Metálicas</li>
           <li>Emissão de ARTs</li>
         </ul>
-
-        <div class="card">
-          <h2>Serviços de Inspeção</h2>
-          <ul class="check">
-            <li>Mensal</li>
-            <li>Anual</li>
-            <li>Extraordinária</li>
-          </ul>
-          <p class="subtle">Fornecimento de Laudos Técnicos / ART: ✅ Sim</p>
-        </div>
       </div>
+
+      <div class="card">
+        <h2>Serviços de Inspeção</h2>
+        <ul class="check">
+          <li>Mensal</li>
+          <li>Anual</li>
+          <li>Extraordinária</li>
+        </ul>
+        <p class="subtle" style="margin-top:1rem;">Fornecimento de Laudos Técnicos / ART: ✅ Sim</p>
+      </div>
+
     </section>
 
     <aside class="aside">
+      
+      <div class="card">
+        <h3>Informações Gerais</h3>
+        <div class="specs-list">
+          <div class="spec-item">
+            <strong>Fundação:</strong> 
+            <span>2017</span>
+          </div>
+          <div class="spec-item">
+            <strong>Atendimento:</strong> 
+            <span>Todo o Brasil</span>
+          </div>
+          <div class="spec-item">
+            <strong>Público-alvo:</strong> 
+            <span>Empresas de Armazenagem e Logística</span>
+          </div>
+        </div>
+      </div>
+
       <div class="card">
         <h3>👤 Contato Comercial</h3>
         <p><strong>Thiago Brasil de Araújo</strong><br>Engenheiro Civil</p>
-        <p><strong>📧</strong> <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a></p>
+        <p style="margin-top:0.5rem"><strong>📧</strong> <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a></p>
         <p><strong>📱</strong> <a href="https://wa.me/5511982402134" target="_blank">(11) 98240-2134</a></p>
         <p><strong>Crea:</strong> 5069958987 - SP</p>
         <p><strong>Horário:</strong> 07h00 às 19h00</p>
-        <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Sinergia Engenharia" class="cta-contact">Solicitar
-          Orçamento</a>
+        <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Sinergia Engenharia" class="cta-contact">Solicitar Orçamento</a>
       </div>
     </aside>
   </main>
-
-  <section id="contact" style="max-width:var(--maxw); margin:2rem auto; padding:0 1.25rem;">
-    <div class="card" style="text-align:center">
-      <h3>Precisa de ajuda com projeto Cantilever?</h3>
-      <p class="subtle">
-        Enviamos proposta técnica completa com cálculos estruturais, especificação de materiais e ART.
-      </p>
-      <a href="mailto:thigobrasil@gmail.com?subject=Projeto Cantilever" class="cta-contact">Entre em contato</a>
-      <a href="manutencao.html" class="cta-contact">Saiba mais sobre manutenção</a>
-    </div>
-  </section>
 
   <footer>
     <small>&copy; 2025 Sinergia Engenharia Brasil — Todos os direitos reservados.</small>
   </footer>
 
   <script>
-    // Header dinâmico
-    window.addEventListener("scroll", () => {
-      const header = document.querySelector("header");
-      header.classList.toggle("scrolled", window.scrollY > 50);
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
     });
 
-    // Menu mobile overlay
-    const menuToggle = document.getElementById("menuToggle");
-    const menuOverlay = document.getElementById("menuOverlay");
-    const closeMenu = document.getElementById("closeMenu");
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.querySelector('nav ul');
 
-    menuToggle.addEventListener("click", () => {
-      menuOverlay.classList.add("show");
-    });
-
-    closeMenu.addEventListener("click", () => {
-      menuOverlay.classList.remove("show");
-    });
-
-    menuOverlay.addEventListener("click", (e) => {
-      if (e.target === menuOverlay) menuOverlay.classList.remove("show");
-    });
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+    }
   </script>
-</body>
 
+</body>
 </html>
