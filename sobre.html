@@ -11,10 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="stylesheet" href="Css/sobre.css">
-</head>
-<style>
-  .hero-left {
+  <style>
+    .hero-left {
       flex:1;
       background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15)),
         url('imagens/sobre.png') center/cover no-repeat;
@@ -27,29 +25,41 @@
       box-shadow:var(--shadow);
       min-height:360px;
     }
-</style>
+  </style>
+</head>
 <body>
+
   <!-- HEADER -->
-  <header>
+  <header id="pageHeader">
     <div class="nav-container">
-        <div class="nav-logo">Sinergia Engenharia Brasil </div>
-
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="produtos.html" class="active">Produtos</a></li> 
-                <li><a href="sobre.html">Sobre Nós</a></li>
-                <li><a href="paletes.html">Paletes</a></li>
-                <li><a href="index.html#contact">Contato</a></li>
-                <li><a href="manutencao.html">Manutenção</a></li>
-            </ul>
-        </nav>
+      <div class="nav-logo">Sinergia Engenharia Brasil</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html" class="active">Sobre Nós</a></li>
+          <li><a href="paletes.html">Paletes</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="manutencao.html">Manutenção</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
+
+  <!-- MENU FULLSCREEN -->
+  <div id="fullscreenMenu" aria-hidden="true">
+    <div class="menu-inner" role="menu">
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="sobre.html">Sobre Nós</a>
+      <a href="paletes.html">Paletes</a>
+      <a href="index.html#contact">Contato</a>
+      <a href="manutencao.html">Manutenção</a>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero" aria-labelledby="titulo-sobre">
@@ -74,63 +84,29 @@
       <div class="card">
         <h2>🏗️ Resumo da Empresa</h2>
         <p class="subtle">A <strong>Sinergia Engenharia Brasil</strong> é parceira estratégica no fornecimento de soluções de engenharia de alta precisão para empresas de armazenagem e centros de distribuição. Desde 2017, já regularizou mais de 200 projetos, sempre com foco na eficiência operacional, documentação técnica rigorosa e conformidade legal.</p>
-        <p class="subtle"><strong>Serviços técnicos essenciais:</strong></p>
-        <ul class="check">
-          <li>ARTs (Anotações de Responsabilidade Técnica): Registro legal obrigatório.</li>
-          <li>Laudos e Pareceres Técnicos: Avaliação da integridade estrutural e operacional.</li>
-          <li>Projetos de Otimização: Desenvolvimento de soluções executivas para maximizar capacidade e fluxo.</li>
-          <li>Quesitos Técnicos: Apoio técnico-jurídico em perícias e processos.</li>
-        </ul>
-        <p class="subtle"><strong>Missão:</strong> Garantir a segurança, eficiência e conformidade da sua operação logística.</p>
+      
       </div>
 
       <div class="card">
         <h2>🌟 Diferenciais</h2>
         <ul class="check">
-          <li><strong>Verticalização Inteligente:</strong> Estruturas integradas com porta-paletes, push-back, drive-in e mezaninos metálicos, otimizando o uso da altura do armazém.</li>
-          <li><strong>Flexibilidade e Escalabilidade:</strong> Projetos preparados para futuras expansões logísticas.</li>
-          <li><strong>Conformidade e Durabilidade:</strong> Engenharia especializada garantindo segurança e longa vida útil.</li>
-          <li><strong>Cálculos Estruturais:</strong> Precisão para cargas dinâmicas e estáticas de armazéns logísticos.</li>
-          <li><strong>Normas ABNT:</strong> Atendimento às normas técnicas e de segurança.</li>
+          <li>Verticalização Inteligente</li>
+          <li>Flexibilidade e Escalabilidade</li>
+          <li>Conformidade e Durabilidade</li>
         </ul>
       </div>
 
-      <div class="card">
-        <h2>🔧 Soluções Oferecidas</h2>
-        <ul class="check">
-          <li>Laudos Técnicos Estruturais</li>
-          <li>Projetos de Estruturas Metálicas</li>
-          <li>Emissão de ARTs</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>🛠️ Serviços de Inspeção</h2>
-        <ul class="check">
-          <li>Mensal</li>
-          <li>Anual</li>
-          <li>Extraordinária</li>
-        </ul>
-        <p class="subtle">Fornecimento de Laudos Técnicos / ART: ✅ Sim</p>
-      </div>
-
-      <div class="card">
-        <h2>📜 Certificações e Normas</h2>
-        <p class="subtle"><strong>Atualmente:</strong> Nenhuma certificação registrada.</p>
-        <p class="subtle"><strong>Normas seguidas:</strong> ABNT (estruturas metálicas, desempenho e segurança).</p>
-      </div>
     </section>
 
     <aside class="aside">
       <div class="card">
         <h3>👤 Contato Comercial</h3>
         <p><strong>Thiago Brasil de Araújo</strong><br>Engenheiro Civil</p>
-        <p><strong>📧</strong> <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a><br></p>
+        <p><strong>📧</strong> <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a></p>
         <p><strong>📱</strong> <a href="https://wa.me/5511982402134" target="_blank">(11) 98240-2134</a></p>
-        <p><strong>Crea</strong> <a href="" target="_blank">5069958987 - SP</a></p>
-        <p><strong>Horário:</strong> 07h00 às 19h00</p>
+
         <a href="mailto:thigobrasil@gmail.com?subject=Orçamento Sinergia Engenharia" class="cta-contact">Solicitar Orçamento</a>
-        </div>
+      </div>
     </aside>
   </main>
 
@@ -139,30 +115,47 @@
 
   </footer>
 
+
   <script>
-    // Script para o Header "encolher" ao rolar
+    // Efeito scroll header
     window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 50) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
+      const header = document.getElementById('pageHeader');
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Script para o menu mobile (hambúrguer)
+    // Menu fullscreen
     const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.querySelector('nav ul');
+    const fullMenu = document.getElementById('fullscreenMenu');
 
-    if (menuToggle && navMenu) {
+    if (menuToggle && fullMenu) {
       menuToggle.addEventListener('click', () => {
-        // Adiciona/Remove a classe 'open' do <ul>
-        navMenu.classList.toggle('open');
+        fullMenu.classList.toggle('open');
+        const i = menuToggle.querySelector('i');
+        if (i) {
+          i.classList.toggle('fa-bars');
+          i.classList.toggle('fa-xmark');
+        }
+      });
 
-        // Troca o ícone de 'fa-bars' (hambúrguer) para 'fa-xmark' (X)
-        const icon = menuToggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-xmark');
+      // Fechar ao clicar em um link
+      document.querySelectorAll('#fullscreenMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          fullMenu.classList.remove('open');
+          const i = menuToggle.querySelector('i');
+          if (i) { i.classList.add('fa-bars'); i.classList.remove('fa-xmark'); }
+        });
+      });
+
+      // Fechar com ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && fullMenu.classList.contains('open')) {
+          fullMenu.classList.remove('open');
+          const i = menuToggle.querySelector('i');
+          if (i) { i.classList.add('fa-bars'); i.classList.remove('fa-xmark'); }
+        }
       });
     }
   </script>
-  </script>
+
 </body>
 </html>
