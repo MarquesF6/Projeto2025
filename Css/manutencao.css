@@ -1,203 +1,408 @@
 :root {
-      --primary:#005f87;
-      --accent:#005f87;
-      --bg:#f5f5f5;
-      --card:#ffffff;
-      --text:#263238;
-      --radius:12px;
-      --maxw:1200px;
-      --shadow:0 6px 20px rgba(0,0,0,0.06);
-    }
+  --primary: #005f87;
+  --accent: #005f87;
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #263238;
+  --radius: 12px;
+  --maxw: 1200px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
 
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body {
-      font-family:'Roboto', sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      -webkit-font-smoothing:antialiased;
-      padding-top:90px;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    /* HEADER */
-    header {
-      position:fixed;
-      top:0; left:0; width:100%;
-      height:80px;
-      background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,0.1);
-      display:flex; align-items:center; justify-content:center;
-      transition:all .3s ease;
-      z-index:1000;
-    }
-    header.scrolled {
-      height:70px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.12);
-    }
-    .nav-container {
-      width:100%; max-width:var(--maxw);
-      display:flex; justify-content:space-between; align-items:center;
-      padding:0 2rem;
-    }
-    .nav-logo {
-      font-size:1.35rem; font-weight:700;
-      color:var(--primary);
-    }
-    nav ul {
-      list-style:none;
-      display:flex; gap:1.8rem;
-    }
-    nav ul li a {
-      color:var(--primary);
-      font-weight:500;
-      text-decoration:none;
-      position:relative;
-      transition:color .2s;
-    }
-    nav ul li a:hover { color:var(--accent); }
-    nav ul li a::after {
-      content:"";
-      position:absolute;
-      bottom:-5px; left:0;
-      width:0; height:2px;
-      background:var(--primary);
-      transition:width .3s;
-    }
-    nav ul li a:hover::after,
-    nav ul li a.active::after {
-      width:100%;
-    }
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  /* Ajuste de 80px para o header desktop */
+  padding-top: 80px;
+}
 
-    /* HERO */
-    .hero {
-      max-width:var(--maxw);
-      margin:1.5rem auto;
-      display:flex;
-      align-items:stretch;
-      gap:2rem;
-      padding:0 1.25rem;
-      flex-wrap:wrap;
-    }
-    .hero-left {
-      flex:1;
-      background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15)),
-        url('imagens/banner-varias-estruturas.jpg') center/cover no-repeat;
-      border-radius:var(--radius);
-      color:#fff;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      padding:3rem;
-      box-shadow:var(--shadow);
-      min-height:360px;
-    }
-    .hero-left h1 {
-      font-size:clamp(1.8rem,3.5vw,2.6rem);
-      margin-bottom:.5rem;
-    }
-    .hero-left p {
-      max-width:60ch;
-      margin-bottom:1.2rem;
-    }
-    .hero-cta {
-      display:flex; flex-wrap:wrap; gap:1rem;
-    }
-    .btn {
-      background:var(--accent);
-      color:#fff;
-      padding:.75rem 1.4rem;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      transition:background .3s;
-    }
-    .btn:hover { background:#ff5a5a; }
+/* ===========================
+   HEADER & NAV (Versão Desktop)
+=========================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s ease;
+  z-index: 1000;
+}
 
-    .hero-right {
-      width:360px;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:1.6rem;
-    }
-    .hero-right h3 { color:var(--primary); margin-bottom:.8rem; }
-    .specs-quick { display:flex; flex-wrap:wrap; gap:.6rem; }
-    .specs-quick .kpi {
-      background:#f3f8fb;
-      color:var(--primary);
-      font-weight:600;
-      padding:.6rem .9rem;
-      border-radius:8px;
-    }
-    .hero-right p { margin-top:.8rem; color:#555; line-height:1.5; }
+header.scrolled {
+  height: 70px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
 
-    /* CONTEÚDO */
-    .container {
-      max-width:var(--maxw);
-      margin:2rem auto;
-      padding:0 1.25rem;
-      display:flex;
-      align-items:flex-start;
-      gap:2rem;
-      flex-wrap:wrap;
-    }
-    .container > section { flex:1; }
-    .card {
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:1.8rem;
-      box-shadow:var(--shadow);
-      margin-bottom:1.8rem;
-    }
-    h2 { color:var(--primary); margin-bottom:.6rem; }
-    p.subtle { color:#555; margin-bottom:1rem; line-height:1.6; }
-    hr { border:none; border-top:1px solid #e5e5e5; margin:1.5rem 0; }
-    ul.check { list-style:none; padding-left:0; }
-    ul.check li {
-      padding-left:1.4rem;
-      position:relative;
-      margin-bottom:.5rem;
-      line-height:1.5;
-    }
-    ul.check li::before {
-      content:"\f00c";
-      font-family:"Font Awesome 6 Free";
-      font-weight:900;
-      position:absolute;
-      left:0; top:0;
-      color:var(--primary);
-      font-size:.8rem;
-    }
-    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.nav-container {
+  width: 100%;
+  max-width: var(--maxw);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
 
-    /* ASIDE */
-    .aside { width:360px; }
-    .aside .card { position:sticky; top:108px; }
+.nav-logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+}
 
-    .cta-contact {
-      display:inline-block;
-      margin-top:.8rem;
-      background:var(--primary);
-      color:#fff;
-      text-decoration:none;
-      padding:.7rem 1.2rem;
-      border-radius:8px;
-      font-weight:600;
-      text-align:center;
-      transition:background .3s;
-    }
-    .cta-contact:hover { background:#00709d; }
+/* Botão Hambúrguer (Oculto no Desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary);
+  background: none;
+  border: none;
+  z-index: 1100;
+}
 
-    /* FOOTER */
-    footer {
-      margin-top:3rem;
-      background:var(--primary);
-      color:#fff;
-      text-align:center;
-      padding:2rem 1rem;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
 
-    /* RESPONSIVO */
-    @media (max-width:980px) {
-      .hero, .container { flex-direction:column; }
-      .hero-right, .aside { width:100%; }
-    }
+nav ul li a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color .2s;
+}
+
+nav ul li a:hover {
+  color: var(--accent);
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width .3s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  max-width: var(--maxw);
+  margin: 1.5rem auto;
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 0 1.25rem;
+  flex-wrap: wrap;
+}
+
+.hero-left {
+  flex: 1;
+  /* NOTE: O background é definido no <style> do HTML para facilitar a edição */
+  border-radius: var(--radius);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  min-height: 360px;
+}
+
+.hero-left h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: .5rem;
+}
+
+.hero-left p {
+  max-width: 60ch;
+  margin-bottom: 1.2rem;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  background: var(--accent);
+  color: #fff;
+  padding: .75rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background .3s;
+}
+
+.btn:hover {
+  background: #ff5a5a;
+}
+
+.hero-right {
+  width: 360px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.6rem;
+}
+
+.hero-right h3 {
+  color: var(--primary);
+  margin-bottom: .8rem;
+}
+
+.specs-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.specs-quick .kpi {
+  background: #f3f8fb;
+  color: var(--primary);
+  font-weight: 600;
+  padding: .6rem .9rem;
+  border-radius: 8px;
+}
+
+.hero-right p {
+  margin-top: .8rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ===========================
+   CONTEÚDO E ASIDE
+=========================== */
+.container {
+  max-width: var(--maxw);
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.container > section {
+  flex: 1;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.8rem;
+}
+
+h2 {
+  color: var(--primary);
+  margin-bottom: .6rem;
+}
+
+p.subtle {
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 1.5rem 0;
+}
+
+ul.check {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.check li {
+  padding-left: 1.4rem;
+  position: relative;
+  margin-bottom: .5rem;
+  line-height: 1.5;
+}
+
+ul.check li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-size: .8rem;
+}
+
+/* ASIDE */
+.aside {
+  width: 360px;
+}
+
+.aside .card {
+  position: sticky;
+  top: 108px;
+}
+
+.cta-contact {
+  display: block; /* Alterado para block para ocupar 100% da largura do aside card */
+  margin-top: .8rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  padding: .7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  transition: background .3s;
+}
+
+.cta-contact:hover {
+  background: #00709d;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 3rem;
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ===========================
+   RESPONSIVIDADE 📱
+=========================== */
+
+/* Ajustes para telas médias (Tablets) */
+@media (max-width: 980px) {
+  /* Empilhamento de Hero e Conteúdo/Aside */
+  .hero,
+  .container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Faz com que o Hero Right e o Aside ocupem 100% da largura */
+  .hero-right,
+  .aside {
+    width: 100%;
+  }
+
+  /* Remove o sticky da barra lateral para que ela flua */
+  .aside .card {
+    position: static;
+    top: auto;
+  }
+
+  /* Ajusta o espaçamento interno do hero-left */
+  .hero-left {
+    padding: 2rem;
+  }
+  
+  /* Melhora o espaçamento de itens rápidos */
+  .specs-quick {
+      gap: 0.5rem;
+  }
+}
+
+/* Ajustes para telas pequenas (Mobile) */
+@media (max-width: 780px) {
+  /* Ajuste do corpo para header menor */
+  body {
+    padding-top: 70px;
+  }
+
+  /* Header Mobile */
+  header,
+  header.scrolled {
+    height: 70px;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  /* Exibe botão hambúrguer */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Menu Mobile Dropdown */
+  nav ul {
+    position: absolute;
+    top: 70px; /* Altura do header mobile */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+
+    /* Estado fechado */
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Estado aberto (via JS) */
+  nav ul.open {
+    max-height: 600px;
+    opacity: 1;
+    padding: 1rem 0;
+    overflow: visible;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    color: var(--text);
+  }
+  
+  nav ul li a:hover {
+    background: #e9ecef;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
+}

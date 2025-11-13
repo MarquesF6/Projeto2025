@@ -7,13 +7,13 @@
 
   <link rel="icon" type="image/x-icon" href="imagens/logo.png">
 
-  <!-- Fonte e ícones -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="Css/manutencao.css">
 </head>
 <style>
+  /* Mantido no HTML para facilitar a edição rápida da imagem de fundo */
   .hero-left {
       flex:1;
       background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15)),
@@ -30,10 +30,14 @@
 </style>
 <body>
 
-  <!-- HEADER -->
-  <header>
+  <header id="pageHeader">
     <div class="nav-container">
       <div class="nav-logo">Sinergia Engenharia Brasil</div>
+      
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -47,7 +51,6 @@
     </div>
   </header> 
 
-  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-left">
       <h1>Manutenção de Estruturas de Armazenagem</h1>
@@ -69,10 +72,8 @@
     </div>
   </section>
 
-  <!-- CONTEÚDO -->
   <main class="container">
     <section>
-      <!-- Porta Paletes -->
       <div class="card" id="porta-paletes">
         <h2>Manutenção de Porta Paletes</h2>
         <p class="subtle">Realizamos inspeções e manutenções completas em estruturas do tipo porta-paletes seletivo, seguindo as normas <strong>ABNT NBR 17150:2024</strong> e <strong>EN 15635:2008</strong>.</p>
@@ -85,7 +86,6 @@
         </ul>
       </div>
 
-      <!-- Drive-In / Drive-Through -->
       <div class="card" id="drive-in">
         <h2>Manutenção Drive-In / Drive-Through</h2>
         <p class="subtle">As estruturas Drive-In e Drive-Through exigem inspeções constantes devido à movimentação interna das empilhadeiras.</p>
@@ -97,7 +97,6 @@
         </ul>
       </div>
 
-      <!-- Cantilever -->
       <div class="card" id="cantilever">
         <h2>Manutenção de Estruturas Cantilever</h2>
         <p class="subtle">O sistema Cantilever é utilizado para armazenagem de materiais longos, como tubos e perfis metálicos.</p>
@@ -110,7 +109,6 @@
         </ul>
       </div>
 
-      <!-- Pushback -->
       <div class="card" id="pushback">
         <h2>Manutenção de Estruturas Pushback</h2>
         <p class="subtle">O sistema Pushback requer atenção especial aos trilhos e mecanismos de deslizamento.</p>
@@ -122,7 +120,6 @@
         </ul>
       </div>
 
-      <!-- Flow Rack -->
       <div class="card" id="flowrack">
         <h2>Manutenção de Estruturas Flow Rack</h2>
         <p class="subtle">Os sistemas Flow Rack utilizam roletes para o deslizamento das cargas por gravidade.</p>
@@ -150,11 +147,25 @@
   </footer>
 
   <script>
+    const header = document.getElementById('pageHeader');
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.querySelector('nav ul');
+
+    // Cabeçalho ao rolar
     window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
       if (window.scrollY > 50) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
     });
+
+    // Script Menu Mobile
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      });
+    }
   </script>
 </body>
 </html>
