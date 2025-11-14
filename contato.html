@@ -2,179 +2,173 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Sinergia Engenharia Brasil</title>
 
-  <!-- Ícones do Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      background: #f9f9f9;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      color: #e63946;
-      /* vermelho */
-      margin-bottom: 20px;
-    }
-
-    .container {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
-      width: 100%;
-      padding: 30px;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      font-size: 1.1em;
-    }
-
-    .contact-item i {
-      color: #0077b6;
-      font-size: 1.3em;
-      margin-right: 10px;
-      width: 25px;
-      text-align: center;
-    }
-
-    .contact-item a {
-      color: #0077b6;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .contact-item a:hover {
-      color: #005f87;
-      text-decoration: underline;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input,
-    textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1em;
-      width: 100%;
-    }
-
-    textarea {
-      resize: none;
-      height: 120px;
-    }
-
-    button {
-      background-color: #0077b6;
-      color: white;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #005f87;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-    }
-  </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Css/contato.css">
+    <link rel="icon" type="image/x-icon" href="imagens/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
 </head>
 
 <body>
-  <h1>Entre em Contato</h1>
+    <header id="pageHeader">
+        <div class="nav-container">
+            <div class="nav-logo">Sinergia Engenharia Brasil</div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="paletes.html">Paletes</a></li>
+                    <li><a href="#contact" class="active-page">Contato</a></li> 
+                    <li><a href="manutencao.html">Manutenção</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="contact-info">
-      <div class="contact-item">
-        <i class="fa-solid fa-phone"></i>
-        <a href="tel:+5511982402134">(11) 98240-2134</a>
-      </div>
-      <div class="contact-item">
-        <i class="fa-brands fa-whatsapp"></i>
-        <a href="https://wa.me/5511982402134" target="_blank">(11) 98240-2134</a>
-      </div>
-      <div class="contact-item">
-        <i class="fa-solid fa-envelope"></i>
-        <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a>
-      </div>
-    </div>
+    <main>
+        <div class="contact-page-container">
+            <h1>Fale Conosco para um Orçamento Personalizado</h1>
 
-    <form id="formContato">
-      <input type="text" name="name" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <textarea name="message" placeholder="Sua mensagem" required></textarea>
+            <div class="contact-card-content">
+                
+                <div class="contact-form-side">
+                    <form id="formContato">
+                        <div style="display:flex; flex-direction:column; gap:15px;">
+                            <input type="text" name="name" placeholder="Seu nome completo" required>
+                            <input type="email" name="email" placeholder="Seu e-mail" required>
+                            <input type="tel" name="phone" placeholder="Seu Telefone / WhatsApp" required>
+                            <textarea name="message" placeholder="Detalhe sua necessidade de armazenagem ou serviço" required></textarea>
+                        </div>
+                        <button type="submit">Enviar Solicitação de Orçamento</button>
+                    </form>
+                    <p id="status"></p>
+                </div>
+                
+                <div class="contact-info-side">
+                    <h2>Informações de Contato</h2>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+5511982402134">(11) 98240-2134</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a href="https://wa.me/5511982402134" target="_blank">WhatsApp (11) 98240-2134</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Atendimento em todo o Brasil</span>
+                    </div>
+                </div>
 
-      <button type="submit">Enviar Mensagem</button>
-    </form>
+            </div>
+        </div>
+    </main>
 
-    <p id="status"></p>
-  </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sinergia Engenharia Brasil</h4>
+                <p>Soluções em armazenagem industrial e estruturas metálicas personalizadas.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="index.html#products">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="index.html#diferenciais">Diferenciais</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="mailto:thigobrasil@gmail.com">thigobrasil@gmail.com</a></li>
+                    <li><a href="tel:+5511982402134">(11) 98240-2134</a></li>
+                    <li><a href="CREA:5069958987 - SP">CREA: 5069958987 - SP</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 Sinergia Engenharia Brasil. Todos os direitos reservados.</div>
+    </footer>
+
+
+    <script>
+        // 1. HEADER AO ROLAR E SCROLL SUAVE
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('pageHeader');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const targetId = link.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // 2. MENU MOBILE
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.querySelector('nav ul');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+        
+        // 3. FUNCIONALIDADE DO FORMULÁRIO (EmailJS)
+        const form = document.getElementById("formContato");
+        const status = document.getElementById("status");
+        
+        // Biblioteca do EmailJS
+        const emailJsScript = document.createElement('script');
+        emailJsScript.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+        emailJsScript.onload = () => {
+            emailjs.init("yBoFZlSMjukHCuuQJ"); // Public Key
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                status.textContent = "Enviando mensagem...";
+                
+                // Desabilitar o botão para evitar cliques múltiplos
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+
+                const serviceID = "service_i6wdybe";
+                const templateID = "template_jy4ff5i";
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        status.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contato.";
+                        form.reset();
+                        submitButton.disabled = false;
+                    })
+                    .catch((error) => {
+                        status.textContent = "Erro ao enviar. Por favor, tente novamente ou use o telefone/e-mail.";
+                        console.error(error);
+                        submitButton.disabled = false;
+                    });
+            });
+        };
+        document.head.appendChild(emailJsScript);
+
+    </script>
 </body>
-
-<!-- Código de envio -->
-
-<!-- Biblioteca do EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init("yBoFZlSMjukHCuuQJ"); // Public Key
-
-  const form = document.getElementById("formContato");
-  const status = document.getElementById("status");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    status.textContent = "Enviando mensagem...";
-
-    const serviceID = "service_i6wdybe";
-    const templateID = "template_jy4ff5i";
-
-    emailjs.sendForm(serviceID, templateID, this)
-      .then(() => {
-        status.textContent = "Mensagem enviada com sucesso!";
-        form.reset();
-      })
-      .catch((error) => {
-        status.textContent = "Erro ao enviar. Tente novamente.";
-        console.error(error);
-      });
-  });
-</script>
-
 
 </html>

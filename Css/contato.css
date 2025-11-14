@@ -1,0 +1,1200 @@
+/* :root define as variáveis globais (custom properties) usadas em todo o site, 
+como cores, sombras, raios de borda e largura máxima. */
+:root {
+  --primary-color: #005f87;
+  --accent-color: #005f87;
+  --bg-light: #f5f5f5;
+  --bg-dark: #f0f0f0;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --card-bg: #ffffff;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --max-width: 1200px;
+}
+
+/* ===== Reset ===== */
+
+/* Este é um "Reset" de CSS. Ele remove margens e preenchimentos padrão 
+de todos os elementos (*, *::before, *::after) e define o box-sizing 
+para 'border-box', o que facilita o cálculo de larguras e alturas. */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos base para o corpo (body) da página: define a fonte principal, 
+cor do texto, cor de fundo e altura da linha padrão. */
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-light);
+  line-height: 1.5;
+}
+
+/* Estilização padrão para links (tags <a>): usa a cor primária, 
+remove o sublinhado e adiciona uma transição suave de cor. */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Efeito hover para links: muda a cor ao passar o mouse. */
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Garante que as imagens sejam responsivas, ocupando 100% da largura 
+de seu contêiner e sendo exibidas como bloco. */
+img {
+  width: 100%;
+  display: block;
+}
+
+/* ===== Header ===== */
+
+/* Estilização do cabeçalho principal (<header>):
+- position: fixed -> fixa o header no topo da tela.
+- box-shadow -> adiciona uma leve sombra.
+- z-index -> garante que ele fique acima de outros conteúdos.
+- display: flex -> alinha os itens internos (logo, nav). */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bg-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  transition: height 0.3s;
+}
+
+/* Estilo aplicado ao header (provavelmente via JavaScript) quando 
+o usuário rola a página, diminuindo sua altura. */
+header.scrolled {
+  height: 60px;
+}
+
+/* Contêiner interno do cabeçalho:
+- max-width -> limita a largura ao valor da variável.
+- margin: auto -> centraliza o contêiner.
+- display: flex -> para alinhar o logo de um lado e a navegação do outro. */
+.nav-container {
+  max-width: var(--max-width);
+  margin: auto;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Estilo para o logo no cabeçalho. */
+.nav-logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Estilização da lista (<ul>) de navegação:
+- list-style: none -> remove os marcadores de lista (bolinhas).
+- display: flex -> alinha os itens (<li>) horizontalmente. */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Estilização dos links (<a>) dentro da lista de navegação. 
+- position: relative -> necessário para o pseudo-elemento ::after. */
+nav ul li a {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.3rem 0;
+  position: relative;
+}
+
+/* Cria o efeito de sublinhado animado.
+- content: '' -> obrigatório para pseudo-elementos.
+- position: absolute -> posiciona o sublinhado em relação ao link (<a>).
+- width: 0 -> começa escondido (largura zero). */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--primary-color);
+  transition: width 0.3s;
+}
+
+/* Efeito hover para o link: expande o sublinhado (::after) para 100% da largura. */
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ===== HERO AJUSTADO E MAIS COMPACTO ===== */
+
+/* Estilização da seção "Hero" (banner principal):
+- height: 65vh -> altura de 65% da altura da janela (viewport height).
+- display: flex -> para centralizar o conteúdo.
+- background -> define a imagem de fundo, com um gradiente escuro por cima.
+- background-attachment: fixed -> cria um efeito parallax (imagem fica parada
+  enquanto a página rola). */
+.hero {
+  position: relative;
+  height: 65vh;
+  /* altura reduzida */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('imagens/imagem de fundo.webp') center center / cover no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+/* Contêiner para o conteúdo (títulos, texto) dentro do Hero.
+- animation -> aplica a animação 'fadeInUp' definida abaixo. */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Estilo do título principal (H1) no Hero. */
+.hero-content h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo do parágrafo de texto no Hero. */
+.hero-content p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #f1f1f1;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo do botão (call-to-action) dentro do Hero. */
+.hero-content .btn {
+  display: inline-block;
+  background-color: #005f87;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito hover para o botão do Hero: muda cor de fundo e aplica um leve zoom (scale). */
+.hero-content .btn:hover {
+  background-color: #ee964b;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Define a animação "fadeInUp", que faz o conteúdo aparecer 
+de baixo para cima (translateY) e ganhando opacidade (opacity). */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade do Hero para telas menores (até 768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+    /* Remove o 'fixed' do background no mobile, pois pode causar travamentos */
+    background-attachment: scroll;
+    margin-top: 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+
+/* ===== Sections ===== */
+
+/* Estilo base para seções de conteúdo (tags <section>):
+Limita a largura máxima, centraliza e adiciona espaçamento. */
+section {
+  max-width: var(--max-width);
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Estilo padrão para títulos (H2) dentro das seções. */
+section h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Produtos ===== */
+
+/* Define um layout em grade (CSS Grid) para exibir os produtos.
+- grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) ->
+  Cria colunas automaticamente. Cada coluna terá no mínimo 280px.
+  Se houver espaço, elas se ajustam para preencher (1fr). */
+.grid-products {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Estilização de um card de produto individual: 
+fundo, bordas, sombra e transição. */
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  /* Garante que a imagem não vaze das bordas arredondadas */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+/* Efeito hover para o card: eleva-se ligeiramente (translateY). */
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo da imagem dentro do card de produto.
+- object-fit: cover -> Garante que a imagem cubra o espaço de 180px 
+  sem distorcer, cortando o excesso se necessário. */
+.product-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Contêiner para as informações (texto) do produto dentro do card. */
+.product-info {
+  padding: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilo do título (H3) do produto. */
+.product-info h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.7rem;
+}
+
+/* Estilo da descrição (parágrafo) do produto. */
+.product-info p {
+  font-size: 1rem;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+/* Estilo do link "saiba mais" ou similar dentro do card. */
+.product-info a.btn-link {
+  margin-top: 1rem;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+/* ===== Contato ===== */
+
+/* Estilização da seção de contato, com cor de fundo e preenchimento. */
+.contact-section {
+  background: var(--bg-dark);
+  color: #000000;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius);
+}
+
+/* Cor do título da seção de contato. */
+.contact-section h2 {
+  color: var(--accent-color);
+}
+
+/* Espaçamento para as informações de contato (antes do formulário). */
+.contact-section .contact-info {
+  margin-bottom: 1.5rem;
+}
+
+/* Garante que o texto, links e campos do formulário dentro da 
+seção de contato tenham uma cor e tamanho específicos. */
+.contact-section p,
+.contact-section a,
+.contact-section input,
+.contact-section textarea,
+.contact-section button {
+  color: #000;
+  font-size: 1rem;
+}
+
+/* ===== Footer ===== */
+
+/* Estilização principal do rodapé (footer): 
+cor de fundo, cor do texto e espaçamento. */
+footer {
+  background: var(--primary-color);
+  color: var(--text-light);
+  padding: 2rem 1.5rem;
+}
+
+/* Contêiner interno do rodapé: limita a largura e organiza 
+os blocos de conteúdo (flexbox) lado a lado. */
+.footer-container {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* Permite que os itens quebrem para a linha de baixo */
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+/* Estilo para cada coluna/seção dentro do rodapé (ex: "Links Úteis").
+- flex: 1 1 250px -> (flex-grow, flex-shrink, flex-basis) 
+  Permite que o item cresça, encolha, mas tenha uma base de 250px. */
+.footer-section {
+  flex: 1 1 250px;
+}
+
+/* Estilos para os títulos (H4), listas e links dentro das seções do rodapé. */
+.footer-section h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  font-size: 0.9rem;
+  color: #f0f0f0;
+}
+
+/* Estilo da linha inferior do rodapé (geralmente para o copyright). */
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsivo ===== */
+
+/* Primeiro bloco de Media Query (ajustes responsivos) 
+para telas de até 768px de largura. */
+@media (max-width: 768px) {
+
+  /* Ajusta o espaçamento da navegação */
+  .nav ul {
+    gap: 1rem;
+  }
+
+  /* Ajusta o tamanho da fonte do H1 no Hero */
+  .hero h1 {
+    font-size: 2.0rem;
+  }
+}
+
+/* ====== CARROSSEL DE PRODUTOS ====== */
+
+/* Contêiner principal do carrossel: define a largura, centraliza 
+e esconde o conteúdo que transborda (overflow: hidden). */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* A "pista" (track) do carrossel que contém os cards.
+- display: flex -> Alinha os cards horizontalmente.
+- overflow-x: auto -> Permite a rolagem horizontal.
+- scroll-behavior: smooth -> Anima a rolagem (usado por JS). */
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* Esconde barra de rolagem no Firefox */
+}
+
+/* Esconde a barra de rolagem horizontal no Chrome e Safari. */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilo específico dos cards DE PRODUTO DENTRO DO CARROSSEL.
+- flex: 0 0 300px -> (Não cresce, Não encolhe, Base de 300px)
+  Define um tamanho fixo para que funcionem corretamente na "pista". */
+.product-card {
+  flex: 0 0 300px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* Estilos de hover, imagem e informações para os cards *dentro do carrossel*. */
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+  text-align: left;
+}
+
+/* Estilização dos botões de seta (anterior/próximo) do carrossel.
+- position: absolute -> Posiciona os botões sobre o carrossel. */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0.7rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+/* Efeito hover e posicionamento específico para os botões "prev" e "next". */
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* ====== DIFERENCIAIS ====== */
+
+/* Estilização da seção "Diferenciais", com fundo em gradiente e espaçamento. */
+.section-diferenciais {
+  background: linear-gradient(135deg, #f8f9fa 0%, #eef2f3 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Estilização do cabeçalho (título e parágrafo) da seção "Diferenciais". */
+.diferenciais-header h2 {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.diferenciais-header p {
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Layout em grade (Grid) para os cards de diferenciais. */
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+/* Estilo de um card de diferencial individual. */
+.diferencial-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cria o efeito de uma borda colorida no topo que se expande no hover. */
+.diferencial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0%;
+  background: #0077ff;
+  transition: width 0.3s ease;
+}
+
+.diferencial-card:hover::before {
+  width: 100%;
+}
+
+.diferencial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilização do conteúdo interno do card de diferencial (ícone, título, texto). */
+.diferencial-card .icon {
+  font-size: 2.5rem;
+  color: #0077ff;
+  margin-bottom: 1rem;
+}
+
+.diferencial-card h4 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.diferencial-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+/* ======== DROPDOWN ======== */
+
+/* Define o contêiner de um item de menu que terá um submenu (dropdown).
+- position: relative -> Permite que o .dropdown-menu (absoluto) 
+  se posicione em relação a este item. */
+.dropdown {
+  position: relative;
+}
+
+/* Estilização do menu dropdown (submenu).
+- display: none -> Fica escondido por padrão (em telas grandes).
+- position: absolute -> Posiciona o submenu abaixo do item pai. */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 999;
+  min-width: 180px;
+}
+
+/* Estilos dos itens (li) e links (a) dentro do menu dropdown. */
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Exibe o menu dropdown (display: block) quando o mouse passa 
+sobre o item pai (.dropdown). Este é o comportamento "hover" para desktop. */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Estiliza o ícone (ex: seta para baixo) ao lado do link principal do dropdown. */
+.dropdown>a i {
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+
+/* Estilização da seção "Sobre Nós" (About). */
+.section-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background-color: #f7f9fc;
+}
+
+/* Estilização do card de conteúdo da seção "Sobre Nós". */
+.about-card {
+  background: #ffffff;
+  max-width: 800px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Estilos para o conteúdo (hover, título, texto, botão) do card "Sobre Nós". */
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.about-card h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0b3954;
+}
+
+.about-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.about-card .btn {
+  display: inline-block;
+  background-color: #0b3954;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.about-card .btn:hover {
+  background-color: #087e8b;
+}
+
+/* ===== MENU RESPONSIVO (SEM EFEITO VIDRO) ===== */
+
+/* Estilo do botão "hamburger" (menu-toggle) para abrir o menu no mobile.
+- display: none -> Fica escondido (display: none) em telas grandes. */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  z-index: 1100;
+}
+
+/* Media Query PRINCIPAL para o menu responsivo (telas de até 900px). */
+@media (max-width: 900px) {
+
+  /* No mobile, a lista de navegação (<ul>) se torna absoluta, vertical,
+   centralizada e escondida por padrão (max-height: 0 e opacity: 0). */
+  nav ul {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: #f8f9fa;
+    /* Cor sólida discreta */
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Classe ".open" (adicionada via JS) que expande o menu mobile 
+   (aumenta o max-height e opacity) quando o botão hamburger é clicado. */
+  nav ul.open {
+    max-height: 600px;
+    /* altura suficiente para todos os itens */
+    opacity: 1;
+    padding: 1rem 0;
+  }
+
+  /* Estilização dos itens e links DENTRO do menu mobile. */
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    background: #e9ecef;
+    color: #004d66;
+  }
+
+  /* Torna o botão hamburger (menu-toggle) visível (display: block) 
+    em telas menores (até 900px). */
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+/* ===== HERO AJUSTES MOBILE ===== */
+/* Mais ajustes responsivos para o Hero em telas de até 768px. */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    background-attachment: scroll;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-content .btn {
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
+}
+
+/* ===== SEÇÕES ===== */
+/* Ajustes responsivos GERAIS para seções, "Sobre Nós", carrossel 
+e diferenciais em telas de até 768px. */
+@media (max-width: 768px) {
+  section {
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .section-about {
+    flex-direction: column;
+    padding: 60px 1rem;
+  }
+
+  .about-card {
+    padding: 25px;
+  }
+
+  .carousel-container {
+    margin: 1rem auto;
+  }
+
+  /* Esconde os botões de seta do carrossel no mobile 
+    para evitar sobreposição. */
+  .carousel-btn {
+    display: none;
+  }
+
+  /* Faz os cards de diferenciais empilharem verticalmente. */
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Faz as colunas do rodapé empilharem verticalmente. */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== AJUSTES FORMULÁRIO ===== */
+/* Ajustes responsivos para o formulário de contato em telas de até 600px 
+(empilhando os campos). */
+@media (max-width: 600px) {
+  .contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-section input,
+  .contact-section textarea,
+  .contact-section button {
+    width: 100%;
+    border-radius: 6px;
+  }
+}
+
+/* Media Query (até 900px) específica para o comportamento 
+do SUBMENU (dropdown) dentro do menu mobile. */
+@media (max-width: 900px) {
+
+  /* Reseta o posicionamento do dropdown no mobile, tornando-o estático 
+    (parte do fluxo do menu mobile). */
+  .dropdown-menu {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    /* Escondido até que a lógica de 'active' o mostre */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Classe ".active" (via JS, provavelmente por clique) 
+    para exibir o submenu no mobile. */
+  .dropdown.active .dropdown-menu {
+    display: flex;
+    /* agora abre corretamente */
+  }
+
+  /* Estilos dos links do submenu no mobile */
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 0;
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+
+
+  /* Garante que o comportamento de HOVER do dropdown funcione 
+APENAS em telas grandes (desktop, acima de 900px). */
+  @media (min-width: 901px) {
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  }
+
+  /* Define a ANIMAÇÃO (transição de max-height) 
+para o submenu (dropdown) no mobile (até 900px). */
+  @media (max-width: 900px) {
+
+    /* Esconde o submenu no mobile usando max-height: 0, 
+    permitindo a transição de "abertura". */
+    .dropdown-menu {
+      position: static;
+      display: block;
+      /* mantemos block para cálculo de altura */
+      max-height: 0;
+      /* escondido por padrão */
+      overflow: hidden;
+      transition: max-height 300ms ease;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+    }
+
+    /* Classe ".active" que expande o submenu no mobile 
+    (aumenta o max-height) ao ser clicado. */
+    .dropdown.active .dropdown-menu {
+      max-height: 600px;
+      /* suficiente para acomodar os itens */
+    }
+
+    /* Estilização dos links dentro do submenu no mobile. */
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 0;
+      color: var(--primary-color);
+      background: transparent;
+    }
+
+  }
+
+}
+
+
+
+
+/* ===== FOOTER RESPONSIVO CORRIGIDO ===== */
+/* Media Query (até 768px) para tornar o rodapé responsivo. */
+@media (max-width: 768px) {
+
+  /* No mobile, o rodapé é centralizado, e seus contêineres 
+    e seções são empilhados verticalmente. */
+  footer {
+    padding: 2.5rem 1rem;
+    text-align: center;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    /* Aumentei um pouco o espaço entre os blocos */
+  }
+
+  
+  .footer-section {
+    width: 90%;
+    /* Ocupa a maior parte da largura do celular */
+    max-width: 320px;
+    /* Limite de largura para não ficar gigante em tablets */
+
+    /* Alinhamento do texto à esquerda para o conteúdo, 
+       mas centralizado para o container (apenas para o bloco) */
+    text-align: left;
+  }
+
+  /* Ajusta o alinhamento da primeira seção de texto */
+  .footer-section:first-child {
+    text-align: center;
+    /* Mantém o alinhamento centralizado para o bloco de texto inicial */
+  }
+
+  /* Centraliza a lista de links/contato dentro de suas seções */
+  .footer-section ul {
+    /* Centraliza a lista de links/contato, que agora tem 90% de largura */
+    padding-left: 0;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+    text-align: center;
+    /* Centraliza os itens da lista */
+  }
+
+  .footer-section h4 {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    /* Aumentei um pouco o tamanho para mobile */
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Ajuste do body para centralizar o conteúdo principal */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Ocupa o espaço entre o header e o footer */
+        main {
+            flex-grow: 1;
+            padding-top: 140px; 
+            padding-bottom: 40px;
+            background: var(--bg-light); 
+        }
+        
+        /* Contêiner principal no meio da página */
+        .contact-page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem; 
+        }
+        
+        /* Título H1 */
+        .contact-page-container h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem; 
+            text-align: center;
+        }
+
+        /* Card de contato - NOVO GRID PARA INVERSÃO */
+        .contact-card-content {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 50px; 
+            grid-template-columns: 2fr 1fr; 
+            display: grid;
+            gap: 3rem; 
+        }
+
+        /* Estilo da seção de Informações (Telefone/Email) */
+        .contact-info-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* REDUZIDO: Um pouco menos de gap aqui */
+        }
+        
+        .contact-info-side h2 {
+            /* REDUZIDO: Tamanho do título da seção de contato */
+            font-size: 1.3rem; 
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            /* REDUZIDO: Tamanho da fonte dos itens de contato */
+            font-size: 1rem; 
+            color: var(--text-dark);
+            /* NOVO: Permite que o texto se ajuste sem quebrar a linha do ícone */
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.3em; /* Ligeiramente menor */
+            margin-right: 12px; /* Ligeiramente menor */
+            /* REMOVIDO: width fixo para não forçar quebra de linha do texto */
+            /* flex-shrink: 0; */ /* Garante que o ícone não encolha */
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            font-weight: 500;
+            /* NOVO: Permite que o texto do link ocupe todo o espaço disponível */
+            flex-grow: 1; 
+            /* NOVO: Garante que o texto encolha se precisar, mas evite quebra */
+            flex-shrink: 1; 
+        }
+        
+        /* Ajuste específico para o link do WhatsApp para garantir que não quebre */
+        .contact-item .fa-brands.fa-whatsapp + a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Estilo do Formulário */
+        #formContato input,
+        #formContato textarea {
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-size: 1em;
+            width: 100%;
+            transition: border-color 0.3s;
+        }
+        
+        #formContato input:focus,
+        #formContato textarea:focus {
+             border-color: var(--primary-color);
+             outline: none;
+        }
+
+        #formContato textarea {
+            resize: vertical;
+            min-height: 150px;
+            margin-bottom: 20px; 
+        }
+        
+        /* Botão Padronizado */
+        #formContato button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #formContato button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Mensagem de status de envio */
+        #status {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        /* Responsividade Específica da página de Contato */
+        @media (max-width: 768px) {
+            .contact-card-content {
+                grid-template-columns: 1fr; 
+                padding: 40px 25px; 
+                gap: 2rem; /* REDUZIDO: Menos gap no mobile */
+            }
+
+            main {
+                padding-top: 110px; 
+            }
+
+            .contact-info-side {
+                border-top: 1px solid var(--bg-dark); 
+                padding-top: 25px; 
+                margin-top: 25px; 
+                border-bottom: none; 
+                margin-bottom: 0;
+            }
+
+            .contact-page-container h1 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
